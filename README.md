@@ -1,1 +1,1 @@
-/node_modules
+lessoner_project_frontend
