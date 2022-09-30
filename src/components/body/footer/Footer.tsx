@@ -1,8 +1,8 @@
-
+import "./Footer.css"
 
 const Footer:any=()=>{
     return(
-        <div>
+        <div className="footer">
             footer
         </div>
     )

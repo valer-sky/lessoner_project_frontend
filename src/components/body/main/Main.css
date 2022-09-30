@@ -1,0 +1,22 @@
+.main{
+   min-height: 84vh;
+   display: flex;
+   flex-direction: column;
+   flex-wrap: wrap;
+   align-items: flex-start;
+   
+    
+
+}
+.bg-body{
+    width: 100%;
+  
+}
+.border-bottom{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+

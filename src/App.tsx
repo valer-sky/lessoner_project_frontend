@@ -6,10 +6,10 @@ import Body from './components/body/Body';
 
 
 function App(): any {
-  // const [data, setData] = useState([])
-  // useEffect(() => {
-  //   getData(setData)
-  // }, [])
+  const [data, setData] = useState([])
+  useEffect(() => {
+    getData(setData)
+  }, [])
 
   return (
     <BrowserRouter>
