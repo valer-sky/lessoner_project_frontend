@@ -11,11 +11,11 @@ const Email = ({ isValid }: EmailProps) => {
 
     const handleChanges = (e: React.FormEvent<HTMLInputElement>): void => {
         e.preventDefault();
-        (e.currentTarget.id === 'email') && (setValue(e.currentTarget.value));
+        setValue(e.currentTarget.value);
     };
 
     const emailValidation = () => {
-        const invalidationRools = [
+        const invalidationRules = [
             /^\s*$/, // check string not empty
             /^[^@]+$/, // @ should exist
             /@[^@]*@/, // onle one @ is admissible
@@ -26,20 +26,18 @@ const Email = ({ isValid }: EmailProps) => {
             /(?<=@).*[^a-z0-9\-.]/, // include only valid symbols before @
         ];
 
-        if (invalidationRools.some(rule => rule.test(value))) {
+        if (invalidationRules.some(rule => rule.test(value))) {
             setError('Please enter a valid email address');
-        } else if (isValid) {
-            setError('This email address is already registered. Use the link “Already have an account?');
-        } else {
-            setError('');
+        } else if (!isValid) {
+            setError('This email address is already registered.');
         }
     };
 
     return (
-        <div className="EmailWrapper">
-            <label htmlFor="email" className="EmailLabel">Email</label>
-            <input type="text" id="email" name="email" required maxLength={256} className={"EmailInput" + (error ? " invalidEmailInput" : "")} placeholder="username2gmail.com" value={value} onChange={handleChanges} onBlur={emailValidation} />
-            {error && <div><span className='errorMessage'>{error}</span></div>}
+        <div className="Email-Wrapper">
+            <label htmlFor="email" className="Email-Label">Email</label>
+            <input type="text" name="email" required maxLength={256} className={"Email-Input" + (error ? " invalidEmail-Input" : "")} placeholder="username2gmail.com" value={value} onChange={handleChanges} onBlur={emailValidation} />
+            {error && <div><span className='error-Message'>{error}</span></div>}
         </div>
     )
 };
