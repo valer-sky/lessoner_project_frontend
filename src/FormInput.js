@@ -7,8 +7,6 @@ const FormInput = ({label, type, required, name, validation}) => {
   const [fieldBlur, setFieldBlur] = useState(false);
 
   const fieldHandler = (e) => {
-    console.log(validation.test(e.target.value))
-    console.log(e.target.value)
       if ( !validation.test(e.target.value)) {
         setFieldError(true);
         e.target.style.borderColor = 'red';
