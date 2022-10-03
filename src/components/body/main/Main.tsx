@@ -1,21 +1,26 @@
 import { Route, Routes } from "react-router-dom"
 import Lessoner from "./lessoner/Lessoner"
-import Categoryes from "./categories/Categories"
+import Categories from "./categories/Categories"
 import Lessons from "./lessons/Lessons"
 import About from "./about/About"
 import Sign_in from "./Sign_in/Sign_in"
 import Sign_up from "./lessoner/Sign_up/Sign_up"
 import "./Main.css"
+import Header from "../header/Header"
+
 
 
 
 
 const Main: any = () => {
+
+
+
     return (
         <div className="main">
             <Routes>
-                <Route path="/" element={<Lessoner />} />
-                <Route path="/categories" element={<Categoryes />} />
+                <Route path="/" element={<Lessoner  />} />
+                <Route path="/categories" element={<Categories />} />
                 <Route path="/lessons" element={<Lessons />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/users/sign_in" element={<Sign_in/>}/>
