@@ -6,8 +6,9 @@ import About from "./about/About"
 import Sign_in from "./Sign_in/Sign_in"
 import Sign_up from "./lessoner/Sign_up/Sign_up"
 import "./Main.css"
-import Header from "../header/Header"
-
+import Link1 from "../../Link1/Link1"
+import Link2 from "../../Link2/Link2"
+import Link3 from "../../Link3/Link3"
 
 
 
@@ -19,6 +20,9 @@ const Main: any = () => {
     return (
         <div className="main">
             <Routes>
+                <Route path="/link1" element={<Link1/>}/>
+                <Route path="/link2" element={<Link2/>}/>
+                <Route path="/link3" element={<Link3/>}/>
                 <Route path="/" element={<Lessoner  />} />
                 <Route path="/categories" element={<Categories />} />
                 <Route path="/lessons" element={<Lessons />} />

@@ -1,7 +1,7 @@
 import "./body.css"  
 import Main from './main/Main'
 import Header from './header/Header'
-import { useState } from "react"
+import Footer from "./footer/Footer"
 
 
 const Body: any = (props:any) => {
@@ -9,7 +9,8 @@ const Body: any = (props:any) => {
     return (
         <div>
             <Header/>
-            <Main  />
+            <Main/>
+            <Footer/>
         </div>
     )
 }
