@@ -5,7 +5,7 @@ import "./categories.css"
 const Categories: any = () => {
     return (
 
-        <div className="my-3 p-3 bg-body rounded shadow-sm">
+        <div >
             <h1>Categories</h1>
             <div >
                 <div><Link to="/categories/categoryies-1" >Category-1</Link></div>

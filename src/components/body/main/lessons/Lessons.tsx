@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 
 const Lessons:any=()=>{
     return(
-        <div >
+        <div className="lessons">
             <h1>Lessons</h1>
             <div >
                 <div><Link to="/lessons/lesson-1" >Lesson-1</Link></div>
