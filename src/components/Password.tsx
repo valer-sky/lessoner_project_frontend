@@ -36,15 +36,15 @@ const Password = ({minSymbol, maxSymbol}: PasswordProps) => {
   }
 
   return (
-    <div className={'password'}>
-      <label className={'passwordLabel'}>Password</label>
+    <div className='password'>
+      <label className='passwordLabel'>Password</label>
       <input type={visiblePassword ? 'text' : 'password'}
              className={'passwordInput ' + `${(isError && isBlur) ? 'errorInput' : ''}`}
              onChange={fieldHandler}
              onBlur={blurHandle}
              required/>
-      <img className={'image'} alt='eye' src={visiblePassword ? open_eye : close_eye} onClick={showPassword}/>
-      {(isError && isBlur) && <span className={'error'}>Password must contain from 6 to 256 characters</span>}
+      <img className='image' alt='eye' src={visiblePassword ? open_eye : close_eye} onClick={showPassword}/>
+      {(isError && isBlur) && <span className='error'>Password must contain from 6 to 256 characters</span>}
     </div>
   )
 }
