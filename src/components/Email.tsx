@@ -1,11 +1,7 @@
 import React, { useState } from "react";
 import './Email.scss';
 
-type EmailProps = {
-    isValid: boolean;
-}
-
-const Email = ({ isValid }: EmailProps) => {
+const Email = () => {
     const [value, setValue] = useState('');
     const [error, setError] = useState('');
 
@@ -28,15 +24,13 @@ const Email = ({ isValid }: EmailProps) => {
 
         if (invalidationRules.some(rule => rule.test(value))) {
             setError('Please enter a valid email address');
-        } else if (!isValid) {
-            setError('This email address is already registered.');
         }
     };
 
     return (
         <div className="Email-Wrapper">
             <label htmlFor="email" className="Email-Label">Email</label>
-            <input type="text" name="email" required maxLength={256} className={"Email-Input" + (error ? " invalidEmail-Input" : "")} placeholder="username2gmail.com" value={value} onChange={handleChanges} onBlur={emailValidation} />
+            <input type="text" name="email" required minLength={3} maxLength={256} className={"Email-Input" + (error ? " invalid-Email-Input" : "")} placeholder="username@gmail.com" value={value} onChange={handleChanges} onBlur={emailValidation} />
             {error && <div><span className='error-Message'>{error}</span></div>}
         </div>
     )
