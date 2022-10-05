@@ -25,15 +25,14 @@ const UserName = ({minSymbol, maxSymbol}: UserNameProps) => {
   }
 
   return (
-    <div className={'userName'}>
-      <label className={'userNameLabel'}>Username</label>
+    <div className='userName'>
+      <label className='userNameLabel'>Username</label>
       <input type='text'
              required
              className={'userNameInput ' + `${(isError && isBlur) ? 'errorInput' : ''}`}
              onChange={fieldHandler}
              onBlur={blurHandle}/>
-      {(isError && isBlur) && <span className={'error'}>Invalid username entered</span>}
-
+      {(isError && isBlur) && <span className='error'>Invalid username entered</span>}
     </div>
   )
 }
