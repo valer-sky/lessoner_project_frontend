@@ -1,0 +1,17 @@
+@import "../constants.scss";
+
+.Form__submit {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  button {
+    height: 60px;
+    width: 276px;
+    background-color: $borderColor;
+    border: 2px solid $borderColor;
+    border-radius: 4px;
+    color: white;
+    @include fieldsFont;
+    margin-top: 20px;
+    }
+}

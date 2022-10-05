@@ -13,7 +13,7 @@ const Email = ({ isValid, cbGetEmail, cbGetErrors }: EmailProps) => {
 
 	const handleChanges = (e: React.FormEvent<HTMLInputElement>): void => {
 		setValue(e.currentTarget.value);
-		cbGetEmail({email: e.currentTarget.value});
+		cbGetEmail({ email: e.currentTarget.value });
 	};
 
 	const emailValidation = () => {
@@ -29,16 +29,16 @@ const Email = ({ isValid, cbGetEmail, cbGetErrors }: EmailProps) => {
 			/(?<=@).*[^a-z0-9\-.]/, // include only valid symbols before @
 		];
 
-	
 		if (invalidationRules.some(rule => rule.test(value))) {
 			message = 'Please enter a valid email address';
-			setError(message);
-			cbGetErrors({email: message});
+			cbGetErrors({ email: message });
 		} else if (!isValid) {
 			message = 'This email address is already registered.';
-			setError(message);
 			cbGetErrors({ email: message });
+		} else {
+			message = '';
 		}
+		setError(message);
 	};
 
 	return (

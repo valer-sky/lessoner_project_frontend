@@ -1,8 +1,6 @@
-import React, { useState } from "react";
-import { Formik, Form, Field, ErrorMessage, useFormik, setNestedObjectValues, } from 'formik';
+import { Formik, Form } from 'formik';
 import './RegistrationForm.scss';
 import Email from "./Email";
-
 
 type RegistrationFormObjectType = {
     email: string,
@@ -10,30 +8,24 @@ type RegistrationFormObjectType = {
 }
 
 const RegistrationForm = () => {
-
     const submit = (values: RegistrationFormObjectType, { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void }) => {
-        console.log(1)
-        setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
-            setSubmitting(false);
-        }, 400);
+        //submit code
     }
 
     return (
         <div>
             <Formik
                 initialValues={{ email: '', password: '' }}
-                // validate={registrationFormValidate}
                 onSubmit={submit}
             >
-                {({ isSubmitting, setValues, setErrors, values, errors }) => (
-                    <Form>
-                        <Email isValid={false}
+                {({ setValues, setErrors, values, errors }) => (
+                    <Form className="Form__submit">
+                        <Email isValid={true}
                             cbGetEmail={(emailVal: { email: string }) => setValues({ ...values, ...emailVal })}
                             cbGetErrors={(emailErr: { error: string }) => setErrors({ ...errors, ...emailErr })} />
-                        <button type="submit" disabled={isSubmitting}>
-                            Submit
-                        </button>
+                        <div><button type="submit" >
+                            Next
+                        </button></div>
                     </Form>
                 )}
             </Formik>
