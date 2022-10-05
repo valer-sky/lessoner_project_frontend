@@ -1,5 +1,3 @@
-$blue: #0747a6;
-
 .birthday {
   margin: 20px 0;
 }
@@ -14,7 +12,7 @@ $blue: #0747a6;
   width: 100%;
   box-sizing: border-box;
   padding: 0.5em;
-  border: 1px solid blue;
+  border: 1px solid #0747a6;
   border-radius: 0.2em;
 }
 
@@ -29,13 +27,6 @@ $blue: #0747a6;
   margin-top: 0.5em;
 }
 
-.react-date-picker__calendar--closed {
-  position: absolute;
-}
-
-.react-date-picker__calendar--open {
-  position: absolute;
-}
 .react-datepicker__current-month{
   visibility: hidden;
 }
