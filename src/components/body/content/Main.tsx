@@ -11,7 +11,7 @@ import "./Main.css"
 
 
 
-const Main: any = () => {
+const Content: any = () => {
 
     return (
         <div className="main">
@@ -27,4 +27,4 @@ const Main: any = () => {
     )
 }
 
-export default Main
+export default Content
