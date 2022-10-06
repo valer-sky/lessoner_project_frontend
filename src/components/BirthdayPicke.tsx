@@ -3,10 +3,10 @@ import "react-datepicker/dist/react-datepicker.css";
 import {useState} from "react";
 import "./birthday.scss";
 
-const Birthday = () => {
+const BirthdayPicke = () => {
   const [value, setValue] = useState<any>(null);
-  const fieldHandler = (event: Date) => {
-    setValue(event);
+  const fieldHandler = (date: Date) => {
+    setValue(date);
   }
 
   return (
@@ -26,4 +26,4 @@ const Birthday = () => {
     </div>
   )
 }
-export default Birthday;
+export default BirthdayPicke;

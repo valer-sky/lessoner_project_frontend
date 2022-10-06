@@ -27,17 +27,20 @@
   margin-top: 0.5em;
 }
 
-.react-datepicker__current-month{
+.react-datepicker__current-month {
   visibility: hidden;
 }
-.react-datepicker__header__dropdown{
+
+.react-datepicker__header__dropdown {
   position: relative;
   top: -1rem;
   font-weight: bold;
 }
+
 .react-datepicker__month-dropdown-container {
- margin-right: 1.5rem;
+  margin-right: 1.5rem;
 }
-.react-datepicker__triangle{
+
+.react-datepicker__triangle {
   visibility: hidden;
 }
