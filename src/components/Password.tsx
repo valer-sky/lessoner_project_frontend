@@ -8,7 +8,7 @@ type PasswordProps = {
   maxSymbol: number;
 }
 
-const Password = ({minSymbol, maxSymbol}: PasswordProps) => {
+const Password = ({minSymbol, maxSymbol}: PasswordProps): JSX.Element => {
   const passwordRegex = new RegExp("^[-/=!#$%&'*+?^_`{|}~.A-Z0-9]{" + minSymbol + "," + maxSymbol + "}$", "i");
   const [value, setValue] = useState('');
   const [error, setError] = useState('');
