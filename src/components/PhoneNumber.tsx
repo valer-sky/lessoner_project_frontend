@@ -1,5 +1,5 @@
 import {useState} from "react";
-import "./phoneNumber.scss"
+import "./phoneNumber.scss";
 
 const PhoneNumber = () => {
   const numberRegex = /[^\d]$/;
@@ -11,14 +11,17 @@ const PhoneNumber = () => {
       setValue(e.currentTarget.value);
     }
   }
+
   return (
-    <div className='phoneNumber'>
+    <div className='phone Number'>
       <label className='phoneNumberLabel'>Phone number</label>
-      <input className='phoneNumberInput'
-             type='text'
-             onChange={fieldHandler}
-             value={value}
-             required/>
+      <input
+        className='phoneNumberInput'
+        type='text'
+        onChange={fieldHandler}
+        value={value}
+        required
+      />
     </div>
   )
 }
