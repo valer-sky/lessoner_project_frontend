@@ -23,3 +23,6 @@ yarn-debug.log*
 yarn-error.log*
 
 .idea
+
+# in general is not good idea, but ok for now
+package-lock.json
