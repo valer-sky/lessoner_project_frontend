@@ -19,10 +19,9 @@ jobs:
       - name: install
         run: npm install --frozen-lockfile --no-progress --non-interactive
 
-      - name: add git credentials
+      - name: add git credentials & deploy
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "987651232+github-actions[bot]@users.noreply.github.com"
+          git config user.name github-actions
+          git config user.email github-actions@github.com
 
-      - name: deploy
-        run: npm run deploy
+          npm run deploy
