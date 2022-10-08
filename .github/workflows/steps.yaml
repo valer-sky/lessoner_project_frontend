@@ -1,0 +1,29 @@
+name: "deploy workflow"
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: echo versions
+        run: |
+          node --version
+          npm --version
+
+      - name: install
+        run: npm install --frozen-lockfile --no-progress --non-interactive
+
+      # credential.helper - from here: https://github.com/tschaub/gh-pages/issues/230
+      - name: add git credentials & deploy
+        run: |
+          git config --global user.name github-actions
+          git config --global user.email github-actions@github.com
+          git config --global credential.helper wincred
+          
+          npm run deploy
