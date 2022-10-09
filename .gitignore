@@ -23,3 +23,6 @@ yarn-debug.log*
 yarn-error.log*
 
 .idea
+
+# /docs folder used at the github pages to serve react app
+/docs
