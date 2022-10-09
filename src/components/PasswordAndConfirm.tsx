@@ -17,7 +17,7 @@ const PasswordAndConfirm = ({minSymbol, maxSymbol, isConfirm}: PasswordProps): J
   const [visiblePassword, setVisiblePassword] = useState(false);
 
   const fieldHandler = (e: React.FormEvent<HTMLInputElement>) => {
-    if (passwordRegex.test(e.currentTarget.value)) {
+    if (passwordRegex.test(e.currentTarget.value) && !isConfirm) {
       setError('');
     } else {
       setError('Password must contain from 6 to 256 characters');
