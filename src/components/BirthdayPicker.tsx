@@ -13,18 +13,19 @@ const BirthdayPicker = () => {
 
   return (
     <div className='birthday'>
-      <label className='birthdaylabel'>When is your birthday?</label>
-      <DatePicker onChange={(e: Date) => fieldHandler(e)}
-                  selected={value}
-                  placeholderText='--.--.----'
-                  dateFormat='dd.MM.yyyy'
-                  maxDate={new Date()}
-                  minDate={minYear}
-                  showMonthDropdown
-                  showYearDropdown
-                  dropdownMode="select"
-                  className='birthdayInput'
-                  required/>
+      <label className='birthdaylabel'>When is your birthday?
+        <DatePicker onChange={(e: Date) => fieldHandler(e)}
+                    selected={value}
+                    placeholderText='--.--.----'
+                    dateFormat='dd.MM.yyyy'
+                    maxDate={new Date()}
+                    minDate={minYear}
+                    showMonthDropdown
+                    showYearDropdown
+                    dropdownMode="select"
+                    className='birthdayInput'
+                    required/>
+      </label>
     </div>
   )
 }
