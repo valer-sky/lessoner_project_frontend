@@ -24,5 +24,14 @@ yarn-error.log*
 
 .idea
 
+
 # /docs folder used at the github pages to serve react app
-/docs
+# TODO: find better solution
+/docs/asset-manifest.json
+/docs/favicon.ico
+/docs/index.html
+/docs/logo192.png
+/docs/logo512.png
+/docs/manifest.json
+/docs/robots.txt
+/docs/static/
