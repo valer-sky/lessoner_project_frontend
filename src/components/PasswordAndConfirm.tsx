@@ -1,16 +1,15 @@
 import {useState} from "react";
 import open_eye from "./icons/open_eye.svg";
 import close_eye from "./icons/close_eye.svg";
-import "./password.scss";
+import "./passwordAndConfirm.scss";
 
 type PasswordProps = {
   minSymbol: number;
   maxSymbol: number;
-  islabel: boolean;
+  isConfirm: boolean;
 }
 
-
-const Password = ({minSymbol, maxSymbol, islabel}: PasswordProps): JSX.Element => {
+const PasswordAndConfirm = ({minSymbol, maxSymbol, isConfirm}: PasswordProps): JSX.Element => {
   const passwordRegex = new RegExp("^[-/=!#$%&'*+?^_`{|}~.A-Z0-9]{" + minSymbol + "," + maxSymbol + "}$", "i");
   const [value, setValue] = useState('');
   const [error, setError] = useState('');
@@ -39,7 +38,7 @@ const Password = ({minSymbol, maxSymbol, islabel}: PasswordProps): JSX.Element =
 
   return (
     <div className='password'>
-      <label className='passwordLabel'>{islabel?'Confirm password':'Password'}</label>
+      <label className='passwordLabel'>{isConfirm ? 'Confirm password' : 'Password'}</label>
       <input type={visiblePassword ? 'text' : 'password'}
              className={'passwordInput ' + `${(error && isBlur) ? 'errorInput' : ''}`}
              onChange={fieldHandler}
@@ -51,4 +50,4 @@ const Password = ({minSymbol, maxSymbol, islabel}: PasswordProps): JSX.Element =
   )
 }
 
-export default Password;
+export default PasswordAndConfirm;
