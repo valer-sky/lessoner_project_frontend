@@ -38,14 +38,15 @@ const PasswordAndConfirm = ({minSymbol, maxSymbol, isConfirm}: PasswordProps): J
 
   return (
     <div className='password'>
-      <label className='passwordLabel'>{isConfirm ? 'Confirm password' : 'Password'}</label>
-      <input type={visiblePassword ? 'text' : 'password'}
-             className={'passwordInput ' + `${(error && isBlur) ? 'errorInput' : ''}`}
-             onChange={fieldHandler}
-             onBlur={blurHandle}
-             required/>
-      <img className='image' alt='eye' src={visiblePassword ? open_eye : close_eye} onClick={showPassword}/>
-      {(error && isBlur) && <span className='error'>{error}</span>}
+      <label className='passwordLabel'>{isConfirm ? 'Confirm password' : 'Password'}
+        <input type={visiblePassword ? 'text' : 'password'}
+               className={'passwordInput ' + `${(error && isBlur) ? 'errorInput' : ''}`}
+               onChange={fieldHandler}
+               onBlur={blurHandle}
+               required/>
+        <img className='image' alt='eye' src={visiblePassword ? open_eye : close_eye} onClick={showPassword}/>
+        {(error && isBlur) && <span className='error'>{error}</span>}
+      </label>
     </div>
   )
 }
