@@ -8,7 +8,8 @@ const BirthdayPicker = () => {
   const fieldHandler = (date: Date) => {
     setValue(date);
   }
-  const minYear = new Date((new Date()).getTime() - 120 * 365.2 * 86400000 - 6 * 86400000 + 29.7 * 60000);
+  const minYear = new Date((new Date()).getTime() -
+    120 * 365.2 * 86400000 - 6 * 86400000 + 29.7 * 60000); // this date 120 years ago
 
   return (
     <div className='birthday'>
