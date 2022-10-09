@@ -18,7 +18,7 @@ const BirthdayPicker = () => {
                   placeholderText='--.--.----'
                   dateFormat='dd.MM.yyyy'
                   maxDate={new Date()}
-                  minDate={new Date(minYear)}
+                  minDate={minYear}
                   showMonthDropdown
                   showYearDropdown
                   dropdownMode="select"
