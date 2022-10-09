@@ -6,9 +6,11 @@ import "./password.scss";
 type PasswordProps = {
   minSymbol: number;
   maxSymbol: number;
+  islabel: boolean;
 }
 
-const Password = ({minSymbol, maxSymbol}: PasswordProps): JSX.Element => {
+
+const Password = ({minSymbol, maxSymbol, islabel}: PasswordProps): JSX.Element => {
   const passwordRegex = new RegExp("^[-/=!#$%&'*+?^_`{|}~.A-Z0-9]{" + minSymbol + "," + maxSymbol + "}$", "i");
   const [value, setValue] = useState('');
   const [error, setError] = useState('');
@@ -37,7 +39,7 @@ const Password = ({minSymbol, maxSymbol}: PasswordProps): JSX.Element => {
 
   return (
     <div className='password'>
-      <label className='passwordLabel'>Password</label>
+      <label className='passwordLabel'>{islabel?'Confirm password':'Password'}</label>
       <input type={visiblePassword ? 'text' : 'password'}
              className={'passwordInput ' + `${(error && isBlur) ? 'errorInput' : ''}`}
              onChange={fieldHandler}
