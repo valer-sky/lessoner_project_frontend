@@ -22,21 +22,21 @@
 
       .radio__items {
         display: flex;
+      }
+      
+      .radio__item {
+        display: flex;
+        align-items: center;
+        margin-right: 20px;
+      }
 
-        .radio__item {
-          display: flex;
-          align-items: center;
-          margin-right: 20px;
-        }
+      .radio__inner {
+        margin-right: 10px;
+      }
 
-        .radio__inner {
-          margin-right: 10px;
-        }
-
-        .radio__text {
-          font-size: 1.2em;
-          font-weight: 700;
-        }
+      .radio__text {
+        font-size: 1.2em;
+        font-weight: 700;
       }
     }
   }

@@ -5,6 +5,9 @@ import '../index.scss';
 const GenderSelector = (props) => {
     const [radio, setRadio] = useState('');
     const [radioError, setRadioError] = useState(''); 
+    const GENDER__MALE = 'male';
+    const GENDER__FEMALE = 'female';
+    const GENDER__OTHER = 'other';
 
     const blurHandler = () => {
         if (radio === "") {
@@ -26,8 +29,8 @@ const GenderSelector = (props) => {
                             <input 
                                 className={classes.radio__inner}
                                 type='radio'
-                                name='Male'
-                                checked={radio === 'Male'}
+                                name={GENDER__MALE}
+                                checked={radio === GENDER__MALE}
                                 onChange={e => {
                                     setRadio(e.target.name);
                                     setRadioError('');
@@ -42,8 +45,8 @@ const GenderSelector = (props) => {
                             <input 
                                 className={classes.radio__inner}
                                 type='radio'
-                                name='Female'
-                                checked={radio === 'Female'}
+                                name={GENDER__FEMALE}
+                                checked={radio === GENDER__FEMALE}
                                 onChange={e => {
                                     setRadio(e.target.name);
                                     setRadioError('');
@@ -58,8 +61,8 @@ const GenderSelector = (props) => {
                             <input 
                                 className={classes.radio__inner}
                                 type='radio'
-                                name='Other'
-                                checked={radio === 'Other'}
+                                name={GENDER__OTHER}
+                                checked={radio === GENDER__OTHER}
                                 onChange={e => {
                                     setRadio(e.target.name);
                                     setRadioError('');
@@ -75,14 +78,6 @@ const GenderSelector = (props) => {
                 {(radioError) && <div style={{color: 'red'}}>{radioError}</div>}
                 
             </label>
-            {/* <input className={classes.button}
-                    type="submit"
-                    value="Finish"
-                    onClick={e => {
-                        e.preventDefault();
-                        blurHandler();
-                    }} 
-                />  */} // for tests
         </div>
     );
 }
