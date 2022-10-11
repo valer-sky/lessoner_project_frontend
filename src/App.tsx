@@ -1,12 +1,12 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import RegistrationForm from './components/RegistrationForm';
+import FirstRegistrationForm from './components/FirstRegistrationForm';
 
 function App() {
   return (
     <div className="App">
-      <RegistrationForm />
+      <FirstRegistrationForm />
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>

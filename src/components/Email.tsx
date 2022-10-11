@@ -2,19 +2,21 @@ import React, { useState } from "react";
 import './Email.scss';
 
 type EmailProps = {
-	isValid: boolean;
-	cbGetEmail: Function;
-	cbGetErrors: Function;
+	value: string;
+	error: string;
+	handleChanges: Function;
+	handleBlur: Function;
 }
 
-const Email = ({ isValid, cbGetEmail, cbGetErrors }: EmailProps) => {
-	const [value, setValue] = useState('');
-	const [error, setError] = useState('');
 
-	const handleChanges = (e: React.FormEvent<HTMLInputElement>): void => {
-		setValue(e.currentTarget.value);
-		cbGetEmail({ email: e.currentTarget.value });
-	};
+const Email = ({ value, error, handleChanges, handleBlur }: EmailProps) => {
+	// const [value, setValue] = useState('');
+	// const [error, setError] = useState('');
+
+	// const handleChanges = (e: React.FormEvent<HTMLInputElement>): void => {
+		// e.preventDefault();
+		// setValue(e.currentTarget.value);
+	// };
 
 	const emailValidation = () => {
 		let message: string;
@@ -29,22 +31,22 @@ const Email = ({ isValid, cbGetEmail, cbGetErrors }: EmailProps) => {
 			/(?<=@).*[^a-z0-9\-.]/, // include only valid symbols before @
 		];
 
-		if (invalidationRules.some(rule => rule.test(value))) {
-			message = 'Please enter a valid email address';
-			cbGetErrors({ email: message });
-		} else if (!isValid) {
-			message = 'This email address is already registered.';
-			cbGetErrors({ email: message });
-		} else {
-			message = '';
-		}
-		setError(message);
+		// if (invalidationRules.some(rule => rule.test(value))) {
+		// 	message = 'Please enter a valid email address';
+		// 	cbGetErrors({ email: message });
+		// } else if (!isValid) {
+		// 	message = 'This email address is already registered.';
+		// 	cbGetErrors({ email: message });
+		// } else {
+		// 	message = '';
+		// }
+		// setError(message);
 	};
 
 	return (
 		<div className="Email-Wrapper">
 			<label htmlFor="email" className="Email-Label">Email</label>
-			<input type="text" name="email" required maxLength={256} className={"Email-Input" + (error ? " invalidEmail-Input" : "")} placeholder="username2gmail.com" value={value} onChange={handleChanges} onBlur={emailValidation} />
+			<input type="text" name="email" required minLength={3} maxLength={256} className={"Email-Input" + (error ? " invalid-Email-Input" : "")} placeholder="username@gmail.com" value={value} /* onChange={handleChanges} onBlur={handleBlur} */ />
 			{error && <div><span className='error-Message'>{error}</span></div>}
 		</div>
 	)
