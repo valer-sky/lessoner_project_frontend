@@ -1,21 +1,29 @@
+body{
+  width: 100vw;
+  height: 100vh;
+  margin:0;
+  background: whitesmoke;
+}
+#root{
+  display: flex;
+  justify-content: center;
+
+}
 .field {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left: auto;
-  position: absolute;
-  width: 95%;
-  height: 95%;
+  width: 30%;
+  padding: 1rem 2rem;
+  background: white;
+  visibility: hidden;
 }
 
 .modal {
   position: relative;
-  width: 50vw;
-  height: 50vh;
-  margin: auto;
+  padding: 1rem;
   border: 2px solid #0747a6;
-  visibility: hidden;
-}
+  }
 
 .close {
   position: absolute;
@@ -31,8 +39,8 @@
 
 .close:before, .close:after {
   position: absolute;
-  width: 2rem;
-  height: 0.2rem;
+  width: 1rem;
+  height: 0.3rem;
   right: 0.5rem;
   top: 1.5rem;
   background: black;
@@ -46,10 +54,9 @@
 .close:after {
   transform: rotate(-45deg);
 }
-
-.button {
-  padding: 1rem;
-  margin: 2rem;
+.title{
+  margin-top: 2rem;
+  font-size: 1.8rem;
 }
 
 .show {
