@@ -2,19 +2,24 @@ import React, {useState} from 'react';
 import classes from './GenderSelector.module.scss';
 import '../index.scss';
 
-const GenderSelector = (props) => {
-    const [radio, setRadio] = useState('');
-    const [radioError, setRadioError] = useState(''); 
+const GenderSelector: React.FC = (props) => {
+    const [radio, setRadio] = useState<string>('');
+    const [radioError, setRadioError] = useState<string>(''); 
     const GENDER__MALE = 'male';
     const GENDER__FEMALE = 'female';
     const GENDER__OTHER = 'other';
 
-    const blurHandler = () => {
+    const errorHandler = () => {
         if (radio === "") {
             setRadioError('Please select Your gender');
         } else {
             setRadioError(''); 
         }
+    }
+
+    const getOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setRadio(e.target.name);
+        setRadioError('');
     }
 
     return (
@@ -25,53 +30,44 @@ const GenderSelector = (props) => {
                         Select Your Gender
                     </p>
                     <div className={classes.radio__items}>
-                        <div className={classes.radio__item}> 
-                            <input 
-                                className={classes.radio__inner}
-                                type='radio'
-                                name={GENDER__MALE}
-                                checked={radio === GENDER__MALE}
-                                onChange={e => {
-                                    setRadio(e.target.name);
-                                    setRadioError('');
-                                }}
-                                {...props} 
-                            />
-                            <p className={classes.radio__text}>
+                        <div className={classes.radio__item}>
+                            <label className={classes.radio__text}> 
+                                <input 
+                                    className={classes.radio__inner}
+                                    type='radio'
+                                    name={GENDER__MALE}
+                                    checked={radio === GENDER__MALE}
+                                    onChange={getOnChange}
+                                    {...props} 
+                                />
                                 Male
-                            </p>
+                            </label>
                         </div>
-                        <div className={classes.radio__item}> 
-                            <input 
-                                className={classes.radio__inner}
-                                type='radio'
-                                name={GENDER__FEMALE}
-                                checked={radio === GENDER__FEMALE}
-                                onChange={e => {
-                                    setRadio(e.target.name);
-                                    setRadioError('');
-                                }}
-                                {...props} 
-                            />
-                            <p className={classes.radio__text}>
+                        <div className={classes.radio__item}>
+                            <label className={classes.radio__text}> 
+                                <input 
+                                    className={classes.radio__inner}
+                                    type='radio'
+                                    name={GENDER__FEMALE}
+                                    checked={radio === GENDER__FEMALE}
+                                    onChange={getOnChange}
+                                    {...props} 
+                                />
                                 Female
-                            </p>
+                            </label>
                         </div>
                         <div className={classes.radio__item}> 
-                            <input 
-                                className={classes.radio__inner}
-                                type='radio'
-                                name={GENDER__OTHER}
-                                checked={radio === GENDER__OTHER}
-                                onChange={e => {
-                                    setRadio(e.target.name);
-                                    setRadioError('');
-                                }}
-                                {...props} 
-                            />
-                            <p className={classes.radio__text}>
+                            <label className={classes.radio__text}>
+                                <input 
+                                    className={classes.radio__inner}
+                                    type='radio'
+                                    name={GENDER__OTHER}
+                                    checked={radio === GENDER__OTHER}
+                                    onChange={getOnChange}
+                                    {...props} 
+                                />
                                 Other
-                            </p>
+                            </label>
                         </div>
                     </div>
                 </div>
