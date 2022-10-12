@@ -1,14 +1,16 @@
-body{
+body {
   width: 100vw;
   height: 100vh;
-  margin:0;
+  margin: 0;
   background: whitesmoke;
 }
-#root{
+
+#root {
   display: flex;
   justify-content: center;
 
 }
+
 .field {
   display: flex;
   flex-direction: column;
@@ -23,7 +25,7 @@ body{
   position: relative;
   padding: 1rem;
   border: 2px solid #0747a6;
-  }
+}
 
 .close {
   position: absolute;
@@ -54,7 +56,8 @@ body{
 .close:after {
   transform: rotate(-45deg);
 }
-.title{
+
+.title {
   margin-top: 2rem;
   font-size: 1.8rem;
 }

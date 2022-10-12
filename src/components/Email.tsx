@@ -41,7 +41,8 @@ const Email = ({field}: EmailProps): JSX.Element => {
              className={"Email-Input" + (error ? " invalid-Email-Input" : "")}
              placeholder="username@gmail.com"
              value={value}
-             onKeyUp={handleChanges}{...field}
+             onKeyUp={handleChanges}
+             {...field}
              onBlur={emailValidation}
       />
       {error && <div><span className='error-Message'>{error}</span></div>}

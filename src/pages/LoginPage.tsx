@@ -27,7 +27,7 @@ const SignupSchema = Yup.object().shape({
 const LoginPage = () => {
   const [isVisible, setIsVisible] = useState(true);
 
-  const showModal = () => {
+  const toggleModalVisibility = () => {
     setIsVisible(!isVisible);
   }
 
@@ -48,7 +48,7 @@ const LoginPage = () => {
         <Form>
           <div className='modal'>
         <span className='close'
-              onClick={showModal}>
+              onClick={toggleModalVisibility}>
         </span>
             <h2 className='title'>Login to the Lessoner</h2>
             <Field name='email'
@@ -60,7 +60,7 @@ const LoginPage = () => {
                 I agree to the processing of my personal data in accordance with the <a href='#!'>Terms</a>
               </label>
             </div>
-            <Button buttonType={'submit'} buttonText={'Sign in'}/>
+            <Button buttonType={'submit'} buttonText={'Sign in'} onClick={undefined}/>
           </div>
         </Form>
       </Formik>
