@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import classes from './Checkbox.module.scss';
 import '../index.scss';
 
-const Checkbox = (props) => {
+const Checkbox: React.FC = (props) => {
     const [isChecked, setIsChecked] = useState(false);
     return (
         <div className={classes.wrapper}>
