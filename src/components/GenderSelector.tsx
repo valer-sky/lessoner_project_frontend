@@ -5,9 +5,12 @@ import '../index.scss';
 const GenderSelector: React.FC = (props) => {
     const [radio, setRadio] = useState<string>('');
     const [radioError, setRadioError] = useState<string>(''); 
-    const GENDER__MALE = 'male';
-    const GENDER__FEMALE = 'female';
-    const GENDER__OTHER = 'other';
+    const GENDER = {
+        MALE: 'male',
+        FEMALE: 'female',
+        OTHER: 'other',
+    }
+    
 
     const errorHandler = () => {
         if (radio === "") {
@@ -35,8 +38,8 @@ const GenderSelector: React.FC = (props) => {
                                 <input 
                                     className={classes.radio__inner}
                                     type='radio'
-                                    name={GENDER__MALE}
-                                    checked={radio === GENDER__MALE}
+                                    name={GENDER.MALE}
+                                    checked={radio === GENDER.MALE}
                                     onChange={getOnChange}
                                     {...props} 
                                 />
@@ -48,8 +51,8 @@ const GenderSelector: React.FC = (props) => {
                                 <input 
                                     className={classes.radio__inner}
                                     type='radio'
-                                    name={GENDER__FEMALE}
-                                    checked={radio === GENDER__FEMALE}
+                                    name={GENDER.FEMALE}
+                                    checked={radio === GENDER.FEMALE}
                                     onChange={getOnChange}
                                     {...props} 
                                 />
@@ -61,8 +64,8 @@ const GenderSelector: React.FC = (props) => {
                                 <input 
                                     className={classes.radio__inner}
                                     type='radio'
-                                    name={GENDER__OTHER}
-                                    checked={radio === GENDER__OTHER}
+                                    name={GENDER.OTHER}
+                                    checked={radio === GENDER.OTHER}
                                     onChange={getOnChange}
                                     {...props} 
                                 />
