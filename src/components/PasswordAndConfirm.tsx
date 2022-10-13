@@ -43,6 +43,7 @@ const PasswordAndConfirm = ({minSymbol, maxSymbol, isConfirm, field}: PasswordPr
         <input type={visiblePassword ? 'text' : 'password'}
                minLength={minSymbol}
                maxLength={maxSymbol}
+               value={value}
                onKeyUp={fieldHandler}
                {...field}
                onBlur={blurHandle}

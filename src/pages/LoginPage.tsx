@@ -9,6 +9,7 @@ import Button from "../components/Button";
 interface FormValues {
   email: string;
   password: string;
+  remember: boolean;
 }
 
 const SignupSchema = Yup.object().shape({
@@ -30,6 +31,7 @@ const LoginPage = () => {
   const initialValues: FormValues = {
     email: '',
     password: '',
+    remember: false,
   }
 
   return (
