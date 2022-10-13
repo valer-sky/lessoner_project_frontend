@@ -9,7 +9,6 @@ import Button from "../components/Button";
 interface FormValues {
   email: string;
   password: string;
-  termsAndConditions: boolean;
 }
 
 const SignupSchema = Yup.object().shape({
@@ -19,9 +18,6 @@ const SignupSchema = Yup.object().shape({
   password: Yup.string()
     .min(6, 'Password should be more than 6 characters')
     .max(256, 'Password should be less than 256 characters'),
-  termsAndConditions: Yup.boolean().isTrue(
-    'You should accept our terms and conditions'
-  ),
 })
 
 const LoginPage = () => {
@@ -34,7 +30,6 @@ const LoginPage = () => {
   const initialValues: FormValues = {
     email: '',
     password: '',
-    termsAndConditions: false,
   }
 
   return (
@@ -55,9 +50,9 @@ const LoginPage = () => {
                    component={Email}/>
             <Field name='password' component={Password} minSymbol={6} maxSymbol={256} isConfirm={false}/>
             <div>
-              <Field name='termsAndConditions' required type='checkbox' id='termsAndConditions'/>
-              <label htmlFor='termsAndConditions'>
-                I agree to the processing of my personal data in accordance with the <a href='#!'>Terms</a>
+              <Field name='remember' type='checkbox' id='remember'/>
+              <label htmlFor='remember'>
+               Stay logged in
               </label>
             </div>
             <Button buttonType={'submit'} buttonText={'Sign in'} onClick={undefined}/>
