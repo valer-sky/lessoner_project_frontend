@@ -47,7 +47,7 @@ const PasswordAndConfirm = ({minSymbol, maxSymbol, isConfirm, field}: PasswordPr
                onKeyUp={fieldHandler}
                {...field}
                onBlur={blurHandle}
-               className={'passwordInput ' + ((error && isBlur) ? 'errorInput' : '')}
+               className={`passwordInput${(error && isBlur) ? ' errorInput' : ''}`}
                required
         />
         <img className='image' alt='eye' src={visiblePassword ? open_eye : close_eye} onClick={showPassword}/>
