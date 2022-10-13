@@ -35,7 +35,7 @@ const LoginPage = () => {
   }
 
   return (
-    <div className={'field ' + `${isVisible ? 'show' : ''}`}>
+    <div className={`'field '${isVisible ? 'show' : ''}`}>
       <Formik
         initialValues={initialValues}
         validationSchema={SignupSchema}
