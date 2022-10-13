@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { isEmailExists } from "../services/services";
 import './Email.scss';
 
 const Email = () => {
@@ -10,7 +11,7 @@ const Email = () => {
         setValue(e.currentTarget.value);
     };
 
-    const emailValidation = () => {
+    const emailValidation = async () => {
         const invalidationRules = [
             /^\s*$/, // check string not empty
             /^[^@]+$/, // @ should exist
@@ -24,6 +25,10 @@ const Email = () => {
 
         if (invalidationRules.some(rule => rule.test(value))) {
             setError('Please enter a valid email address');
+        } else if (await isEmailExists(value)) {
+            setError('This email address is already registered');
+        } else {
+            setError('');
         }
     };
 
