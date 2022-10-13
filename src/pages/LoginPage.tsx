@@ -1,10 +1,14 @@
-import "../components/modal/modal.scss"
-import {useState} from "react";
+import "../components/modal/modal.scss";
 import Email from "../components/Email";
 import Password from "../components/PasswordAndConfirm";
 import {Formik, Field, Form} from "formik";
 import * as Yup from 'yup';
 import Button from "../components/Button";
+import {Link} from 'react-router-dom';
+
+const minSymbol = 6;
+const maxSymbol = 256;
+const passwordRegex = new RegExp("^[-/=!#$%&'*+?^_`{|}~.A-Z0-9]{" + minSymbol + "," + maxSymbol + "}$", "i");
 
 interface FormValues {
   email: string;
@@ -17,16 +21,12 @@ const SignupSchema = Yup.object().shape({
     .min(3, 'Email should be more than 3 characters')
     .max(256, 'Email should be less than 256 characters'),
   password: Yup.string()
+    .matches(passwordRegex)
     .min(6, 'Password should be more than 6 characters')
     .max(256, 'Password should be less than 256 characters'),
 })
 
 const LoginPage = () => {
-  const [isVisible, setIsVisible] = useState(true);
-
-  const toggleModalVisibility = () => {
-    setIsVisible(!isVisible);
-  }
 
   const initialValues: FormValues = {
     email: '',
@@ -35,7 +35,7 @@ const LoginPage = () => {
   }
 
   return (
-    <div className={`field + ${isVisible ? ' show' : ''}`}>
+    <div className='field'>
       <Formik
         initialValues={initialValues}
         validationSchema={SignupSchema}
@@ -44,17 +44,18 @@ const LoginPage = () => {
         }}>
         <Form>
           <div className='modal'>
-        <span className='close'
-              onClick={toggleModalVisibility}>
+            <Link to='/'>
+        <span className='close'>
         </span>
+            </Link>
             <h2 className='title'>Login to the Lessoner</h2>
             <Field name='email'
                    component={Email}/>
-            <Field name='password' component={Password} minSymbol={6} maxSymbol={256} isConfirm={false}/>
+            <Field name='password' component={Password} minSymbol={minSymbol} maxSymbol={maxSymbol} isConfirm={false}/>
             <div>
               <Field name='remember' type='checkbox' id='remember'/>
               <label htmlFor='remember'>
-               Stay logged in
+                Stay logged in
               </label>
             </div>
             <Button buttonType={'submit'} buttonText={'Sign in'} onClick={undefined}/>
