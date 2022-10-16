@@ -4,7 +4,6 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin: 20px 0 0;
 }
 
 .Email-Label {
@@ -14,7 +13,14 @@
 } 
 
 .Email-Input {
-    @include textFieldInput;
+    line-height: 40px;
+    border: 2px solid $borderColor;
+    border-radius: 4px;
+    width: 270px;
+    @include fieldsFont;
+    &:focus {
+        border: 3px solid $borderColor;
+    }
 }
 
 .invalid-Email-Input {
