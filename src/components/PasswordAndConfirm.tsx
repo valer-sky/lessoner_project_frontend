@@ -27,7 +27,7 @@ const PasswordAndConfirm = ({ minSymbol, maxSymbol, isConfirm, field, error }: P
     <div className='password'>
       <label className='passwordLabel'>{isConfirm ? 'Confirm password' : 'Password'}
         <input type={visiblePassword ? 'text' : 'password'}
-          className={'passwordInput ' + `${error ? 'errorInput' : ''}`}
+          className={`passwordInput ${error ? `errorInput` : ``}`}
           onChange={(e) => setValue(e.currentTarget.value)}
           minLength={minSymbol}
           maxLength={maxSymbol}

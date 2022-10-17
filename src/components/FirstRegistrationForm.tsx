@@ -22,7 +22,7 @@ const emailInvalidationRules = [
 	/^\./, // '.' can't be first symbol
 	/\.{2,}.+(?=@)/, // '.' can't repeat more than once in a row
 	/\.(?=@)/, // '.' can't be before @
-	/[^A-Za-z0-9_!#$%&'.*+\-/=?\^`{|}~].*(?=@)/, // include only valid symbols before @
+	/[^A-Za-z0-9_!#$%&'.*+\-/=?^`{|}~].*(?=@)/, // include only valid symbols before @
 	/(?<=@).*[^a-z0-9\-.]/, // include only valid symbols before @
 ];
 
