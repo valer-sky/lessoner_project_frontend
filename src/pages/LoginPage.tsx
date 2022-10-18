@@ -8,6 +8,7 @@ import {Link} from 'react-router-dom';
 
 const minSymbol = 6;
 const maxSymbol = 256;
+const mailRgex = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
 const passwordRegex = new RegExp("^[-/=!#$%&'*+?^_`{|}~.A-Z0-9]{" + minSymbol + "," + maxSymbol + "}$", "i");
 
 interface FormValues {
@@ -18,6 +19,7 @@ interface FormValues {
 
 const SignupSchema = Yup.object().shape({
   email: Yup.string()
+    .matches(mailRgex)
     .min(3, 'Email should be more than 3 characters')
     .max(256, 'Email should be less than 256 characters'),
   password: Yup.string()
@@ -59,6 +61,7 @@ const LoginPage = () => {
               </label>
             </div>
             <Button buttonType={'submit'} buttonText={'Sign in'} onClick={undefined}/>
+            <a className='passwordLink'>Forgot your password?</a>
           </div>
         </Form>
       </Formik>

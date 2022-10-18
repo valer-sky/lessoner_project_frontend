@@ -44,6 +44,7 @@ const PasswordAndConfirm = ({minSymbol, maxSymbol, isConfirm, field}: PasswordPr
                minLength={minSymbol}
                maxLength={maxSymbol}
                value={value}
+               placeholder='At least6 characters'
                onKeyUp={fieldHandler}
                {...field}
                onBlur={blurHandle}
