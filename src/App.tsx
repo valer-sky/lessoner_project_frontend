@@ -1,15 +1,13 @@
-import React, { useEffect } from 'react';
-import { getData } from './services/services';
-import './App.css';
-import { BrowserRouter } from 'react-router-dom'
-import Body from './components/body/Body';
-
+import { useEffect } from "react";
+import { getData } from "./services/services";
+import "./App.css";
+import { BrowserRouter } from "react-router-dom";
+import Body from "./components/body/Body";
 
 function App(): any {
-  
   useEffect(() => {
-    getData()
-  }, [])
+    getData();
+  }, []);
 
   return (
     <BrowserRouter>
@@ -17,7 +15,6 @@ function App(): any {
         <Body />
       </div>
     </BrowserRouter>
-
   );
 }
 
