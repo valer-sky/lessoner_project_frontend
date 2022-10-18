@@ -4,8 +4,10 @@ import Password from "../components/PasswordAndConfirm";
 import {Formik, Field, Form} from "formik";
 import * as Yup from 'yup';
 import Button from "../components/Button";
-import {Link} from 'react-router-dom';
+import {Link} from "react-router-dom";
 import {useState} from "react";
+import {useAppDispatch} from "../store/hooks";
+import {getLogin} from "../store/loginName/loginSlice"
 
 const minSymbol = 6;
 const maxSymbol = 256;
@@ -31,6 +33,9 @@ const SignupSchema = Yup.object().shape({
 
 const LoginPage = () => {
   const [isChecked, setIsChecked] = useState(false);
+
+  const dispatch = useAppDispatch();
+
   const initialValues: FormValues = {
     email: '',
     password: '',
@@ -42,7 +47,8 @@ const LoginPage = () => {
       <Formik
         initialValues={initialValues}
         validationSchema={SignupSchema}
-        onSubmit={(values, actions) => {
+        onSubmit={(values) => {
+          dispatch(getLogin(values.email))
           console.log(values); //for example that working
         }}>
         <Form>
@@ -52,25 +58,39 @@ const LoginPage = () => {
         </span>
             </Link>
             <h2 className='title'>Login to the Lessoner</h2>
-            <Field name='email'
-                   component={Email}/>
-            <Field name='password'
-                   component={Password}
-                   minSymbol={minSymbol}
-                   maxSymbol={maxSymbol}
-                   isConfirm={false}/>
+            <Field
+              name='email'
+              component={Email}
+            />
+            <Field
+              name='password'
+              component={Password}
+              minSymbol={minSymbol}
+              maxSymbol={maxSymbol}
+              isConfirm={false}
+            />
             <div className='checkbox'>
-              <Field name='remember'
-                     type='checkbox'
-                     id='remember'
-                     onChange={() => {setIsChecked(!isChecked)}}
-                     className={isChecked ? 'checked' : 'unchecked'}
+              <Field
+                name='remember'
+                type='checkbox'
+                id='remember'
+                onChange={() => {
+                  setIsChecked(!isChecked)
+                }}
+                className={isChecked ? 'checked' : 'unchecked'}
               />
-              <label htmlFor='remember' className='labelCheckbox'>
+              <label
+                htmlFor='remember'
+                className='labelCheckbox'
+              >
                 Stay logged in
               </label>
             </div>
-            <Button buttonType={'submit'} buttonText={'Sign in'} onClick={undefined}/>
+            <Button
+              buttonType={'submit'}
+              buttonText={'Sign in'}
+              onClick={undefined}
+            />
             <a href='#' className='passwordLink'>Forgot your password?</a>
           </div>
         </Form>
