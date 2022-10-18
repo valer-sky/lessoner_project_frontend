@@ -1,4 +1,3 @@
-import { connected } from 'process';
 import React,  {FC, useEffect, useState} from 'react';
 import './ModalEnterPhone.scss';
 
@@ -13,9 +12,9 @@ const ModalEnterPhone: FC<CardProps> =
     setActive,
   }) => {
   
-  const [phone, Phone] = useState<string>('');
-  const [phoneDirty, PhoneDirty] = useState<boolean>(false);
-  const [phoneError, PhoneError] = useState<string>('The input field must be filled');
+  const [phone, setPhone] = useState<string>('');
+  const [isPhoneDirty, setPhoneDirty] = useState<boolean>(false);
+  const [phoneError, setPhoneError] = useState<string>('The input field must be filled');
   const [formValid, setFormValid] = useState<boolean>(false);
 
   useEffect(() => {
@@ -31,19 +30,19 @@ const ModalEnterPhone: FC<CardProps> =
   }
 
   const blurHandler = () => {
-    PhoneDirty(true);
+    setPhoneDirty(true);
   }
 
   const phoneHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const re = /^(\+375|80)(29|25|44|33)(\d{3})(\d{2})(\d{2})$/;
 
     if (!re.test(e.target.value)) {
-      PhoneError('Phone number incorrect');
+      setPhoneError('Phone number incorrect');
       if (!e.target.value) {
-        PhoneError('The input field must be filled');
+        setPhoneError('The input field must be filled');
       }
     } else {
-      PhoneError('');
+      setPhoneError('');
     }
   }
 
@@ -69,7 +68,7 @@ const ModalEnterPhone: FC<CardProps> =
               name='phone'
                 value={phone}
                 onChange={e => {
-                  Phone(e.target.value);
+                  setPhone(e.target.value);
                   phoneHandler(e);
                 }}
                 onBlur={blurHandler} 
@@ -77,7 +76,7 @@ const ModalEnterPhone: FC<CardProps> =
                 placeholder='+375000000000'
                 className="enterphone__input" 
               />
-              {(phoneDirty && phoneError) && <div className='error' style={{color: 'red'}}>{phoneError}</div>}
+              {(isPhoneDirty && phoneError) && <div className='error' style={{color: 'red'}}>{phoneError}</div>}
             </label>
             <button
               type='submit'
