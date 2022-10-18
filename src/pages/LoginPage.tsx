@@ -5,6 +5,7 @@ import {Formik, Field, Form} from "formik";
 import * as Yup from 'yup';
 import Button from "../components/Button";
 import {Link} from 'react-router-dom';
+import {useState} from "react";
 
 const minSymbol = 6;
 const maxSymbol = 256;
@@ -29,7 +30,7 @@ const SignupSchema = Yup.object().shape({
 })
 
 const LoginPage = () => {
-
+  const [isChecked, setIsChecked] = useState(false);
   const initialValues: FormValues = {
     email: '',
     password: '',
@@ -53,10 +54,19 @@ const LoginPage = () => {
             <h2 className='title'>Login to the Lessoner</h2>
             <Field name='email'
                    component={Email}/>
-            <Field name='password' component={Password} minSymbol={minSymbol} maxSymbol={maxSymbol} isConfirm={false}/>
-            <div>
-              <Field name='remember' type='checkbox' id='remember'/>
-              <label htmlFor='remember'>
+            <Field name='password'
+                   component={Password}
+                   minSymbol={minSymbol}
+                   maxSymbol={maxSymbol}
+                   isConfirm={false}/>
+            <div className='checkbox'>
+              <Field name='remember'
+                     type='checkbox'
+                     id='remember'
+                     onChange={() => {setIsChecked(!isChecked)}}
+                     className={isChecked ? 'checked' : 'unchecked'}
+              />
+              <label htmlFor='remember' className='labelCheckbox'>
                 Stay logged in
               </label>
             </div>
