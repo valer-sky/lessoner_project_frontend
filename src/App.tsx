@@ -1,10 +1,11 @@
 import React from 'react';
 import UserName from "./components/UserName"
+import {USERNAME} from "./constants"
 
 function App() {
   return (
     <div>
-     <UserName minSymbol={3} maxSymbol={256}/>
+      <UserName minSymbol={USERNAME.min} maxSymbol={USERNAME.max}/>
     </div>
   );
 }

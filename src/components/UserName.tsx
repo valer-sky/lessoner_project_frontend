@@ -3,6 +3,7 @@ import "./userName.scss";
 import {useAppDispatch, useAppSelector} from "../store/hooks";
 import {getUser} from "../store/loginName/userSlice";
 import {AnyAction, Dispatch} from "redux";
+import classNames from 'classnames';
 
 type UserNameProps = {
   minSymbol: number;
@@ -12,29 +13,31 @@ const UserName = ({minSymbol, maxSymbol}: UserNameProps): JSX.Element => {
   const userNameRegex = new RegExp('^[A-ZА-ЯЁ \d]{' + minSymbol + ',' + maxSymbol + '}$', 'i');
   const [value, setValue] = useState('');
   const [isBlur, setIsBlur] = useState(false);
-  const [addStyle, setAddStyle] = useState('');
+  const [extraStyle, setExtraStyle] = useState('');
   const [error, setError] = useState('');
 
   const dispatch = useAppDispatch();
-  const status = useAppSelector((state) => state.user.login);
+  const userStatus = useAppSelector((state) => state.user.isLogged);
 
   const fieldHandler = (e: React.FormEvent<HTMLInputElement>) => {
-    setValue(e.currentTarget.value);
-    dispatch(getUser(e.currentTarget.value));
-    if (!userNameRegex.test(e.currentTarget.value)) {
+    const value = e.currentTarget.value;
+    setValue(value);
+    dispatch(getUser(value));
+
+    if (!userNameRegex.test(value)) {
       setError('Invalid username entered');
-      setAddStyle('errorInput');
+      setExtraStyle('errorInput');
     } else {
       setError('');
     }
   }
 
   useEffect(() => {
-    if (status) {
+    if (userStatus) {
       setError('User already exists. Please enter a different username');
-      setAddStyle('redBorder')
+      setExtraStyle('redBorder')
     }
-  }, [status]);
+  }, [userStatus]);
 
   const blurHandle = (e: React.FormEvent<HTMLInputElement>) => {
     setIsBlur(true);
@@ -45,7 +48,7 @@ const UserName = ({minSymbol, maxSymbol}: UserNameProps): JSX.Element => {
       <label className='userNameLabel'>Username</label>
       <input type='text'
              required
-             className={`userNameInput ${(error && isBlur) ? addStyle : ''}`}
+             className={classNames('userNameInput', {[`${extraStyle}`]: (isBlur && error)})}
              onChange={fieldHandler}
              onBlur={blurHandle}/>
       {(error && isBlur) && <span className='error'>{error}</span>}
@@ -53,5 +56,3 @@ const UserName = ({minSymbol, maxSymbol}: UserNameProps): JSX.Element => {
   )
 }
 export default UserName;
-// violettakolendovich@gmail.com
-// Radowichewnishewhishechka

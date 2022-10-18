@@ -6,6 +6,7 @@ export const getUser = createAsyncThunk(
   async (userName: string) => {
     const response = await fetch(`${BACKEND_URL}/check_username?name=${userName}`);
     const data = await response.json();
+
     if (response.status === 200) {
       return data.usernameExists;
     } else {
@@ -15,10 +16,10 @@ export const getUser = createAsyncThunk(
 );
 
 type User = {
-  login: boolean|any
+  isLogged: boolean;
 }
 const initialState: User = {
-  login: false,
+  isLogged: false,
 }
 const userSlice = createSlice({
   name: 'user',
@@ -27,7 +28,7 @@ const userSlice = createSlice({
   extraReducers(builder) {
     builder
       .addCase(getUser.fulfilled, (state, action) => {
-        state.login = action.payload;
+        state.isLogged = action.payload;
       })
   }
 })
