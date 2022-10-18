@@ -61,7 +61,7 @@ const LoginPage = () => {
               </label>
             </div>
             <Button buttonType={'submit'} buttonText={'Sign in'} onClick={undefined}/>
-            <a className='passwordLink'>Forgot your password?</a>
+            <a href='#' className='passwordLink'>Forgot your password?</a>
           </div>
         </Form>
       </Formik>
