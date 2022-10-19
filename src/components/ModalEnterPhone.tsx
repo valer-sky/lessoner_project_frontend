@@ -3,7 +3,7 @@ import './ModalEnterPhone.scss';
 
 interface CardProps {
   active: boolean;
-  setActive: (bool: boolean) => void ;
+  setActive: (bool: boolean) => void;
 }
 
 const ModalEnterPhone: FC<CardProps> = 
@@ -12,17 +12,13 @@ const ModalEnterPhone: FC<CardProps> =
     setActive,
   }) => {
   
-  const [phone, setPhone] = useState<string>('');
-  const [isPhoneDirty, setPhoneDirty] = useState<boolean>(false);
-  const [phoneError, setPhoneError] = useState<string>('The input field must be filled');
-  const [formValid, setFormValid] = useState<boolean>(false);
+  const [phone, setPhone] = useState('');
+  const [isPhoneDirty, setPhoneDirty] = useState(false);
+  const [phoneError, setPhoneError] = useState('The input field must be filled');
+  const [formValid, setFormValid] = useState(false);
 
   useEffect(() => {
-    if (phoneError) {
-      setFormValid(false);
-    } else {
-      setFormValid(true);
-    }
+      setFormValid(!phoneError);
   }, [phoneError])
 
   const sendphone = () => {
@@ -33,14 +29,18 @@ const ModalEnterPhone: FC<CardProps> =
     setPhoneDirty(true);
   }
 
+  
+
   const phoneHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const re = /^(\+375|80)(29|25|44|33)(\d{3})(\d{2})(\d{2})$/;
 
-    if (!re.test(e.target.value)) {
+    const {value} = e.target
+    const phoneIsMatched = re.test(value)
+
+    if (!value) {
+      setPhoneError('The input field must be filled');
+    } else if (!phoneIsMatched) {
       setPhoneError('Phone number incorrect');
-      if (!e.target.value) {
-        setPhoneError('The input field must be filled');
-      }
     } else {
       setPhoneError('');
     }
@@ -65,7 +65,7 @@ const ModalEnterPhone: FC<CardProps> =
                 Phone number
               </span> 
               <input
-              name='phone'
+                name='phone'
                 value={phone}
                 onChange={e => {
                   setPhone(e.target.value);
