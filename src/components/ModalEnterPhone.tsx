@@ -11,6 +11,8 @@ const ModalEnterPhone: FC<CardProps> =
     active, 
     setActive,
   }) => {
+    console.log(active)
+    console.log(setActive)
   
   const [phone, setPhone] = useState('');
   const [isPhoneDirty, setPhoneDirty] = useState(false);
@@ -47,48 +49,50 @@ const ModalEnterPhone: FC<CardProps> =
   }
 
   return (
-    <div 
-      className={active ? 'modal active' : 'modal'}
-      onClick={() => setActive(false)}  
-    >
+    <div>
       <div 
-        className={active ? 'modal__content active' : 'modal__content'}
-        onClick={e => e.stopPropagation()}
+        className={active ? 'modal active' : 'modal'}
+        onClick={() => setActive(false)}  
       >
-        <div className="enterphone__content">
-          <h1 className="enterphone__title">
-            Enter your phone number
-          </h1>
-           <form method='get'>
-            <label  className="enterphone__label">
-              <span className="enterphone__label-text">
-                Phone number
-              </span> 
-              <input
-                name='phone'
-                value={phone}
-                onChange={e => {
-                  setPhone(e.target.value);
-                  phoneHandler(e);
-                }}
-                onBlur={blurHandler} 
-                type="tel" 
-                placeholder='+375000000000'
-                className="enterphone__input" 
-              />
-              {(isPhoneDirty && phoneError) && <div className='error' style={{color: 'red'}}>{phoneError}</div>}
-            </label>
-            <button
-              type='submit'
-              disabled={!formValid}
-              onClick={sendphone}
-              className="enterphone__submit"
-            >
-              Submit code
-            </button>
-          </form>
-        </div>
-      </div>  
+        <div 
+          className={active ? 'modal__content active' : 'modal__content'}
+          onClick={e => e.stopPropagation()}
+        >
+          <div className="enterphone__content">
+            <h1 className="enterphone__title">
+              Enter your phone number
+            </h1>
+            <form method='get'>
+              <label  className="enterphone__label">
+                <span className="enterphone__label-text">
+                  Phone number
+                </span> 
+                <input
+                  name='phone'
+                  value={phone}
+                  onChange={e => {
+                    setPhone(e.target.value);
+                    phoneHandler(e);
+                  }}
+                  onBlur={blurHandler} 
+                  type="tel" 
+                  placeholder='+375000000000'
+                  className={"enterphone__input"} 
+                />
+                {(isPhoneDirty && phoneError) && <div className='error' style={{color: 'red'}}>{phoneError}</div>}
+              </label>
+              <button
+                type='submit'
+                disabled={!formValid}
+                onClick={sendphone}
+                className="enterphone__submit"
+              >
+                Submit code
+              </button>
+            </form>
+          </div>
+        </div>  
+      </div>
     </div>
   )
 }
