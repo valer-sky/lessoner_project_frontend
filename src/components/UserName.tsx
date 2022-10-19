@@ -39,7 +39,7 @@ const UserName = ({minSymbol, maxSymbol}: UserNameProps): JSX.Element => {
     }
   }, [userStatus]);
 
-  const blurHandle = (e: React.FormEvent<HTMLInputElement>) => {
+  const blurHandle = () => {
     setIsBlur(true);
   }
 
