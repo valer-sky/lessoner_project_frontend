@@ -3,7 +3,7 @@ import './ModalEnterPhone.scss';
 
 interface CardProps {
   active: boolean;
-  setActive: (bool: boolean) => void ;
+  setActive: (bool: boolean) => void;
 }
 
 const ModalEnterPhone: FC<CardProps> = 

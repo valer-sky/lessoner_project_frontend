@@ -4,7 +4,7 @@ import './ModalConfirmCode.scss';
 
 interface CardProps {
   active: boolean;
-  setActive: (bool: boolean) => void ;
+  setActive: (bool: boolean) => void;
 }
 
 const ModalConfirmCode: FC<CardProps> = 
@@ -13,10 +13,10 @@ const ModalConfirmCode: FC<CardProps> =
     setActive,
   }) => {
   
-  const [code, setCode] = useState<string>('');
-  const [codeDirty, setCodeDirty] = useState<boolean>(false);
-  const [codeError, setCodeError] = useState<string>('The input field must be filled');
-  const [formValid, setFormValid] = useState<boolean>(false);
+  const [code, setCode] = useState('');
+  const [codeDirty, setCodeDirty] = useState(false);
+  const [codeError, setCodeError] = useState('The input field must be filled');
+  const [formValid, setFormValid] = useState(false);
 
   useEffect(() => {
     if (codeError) {
