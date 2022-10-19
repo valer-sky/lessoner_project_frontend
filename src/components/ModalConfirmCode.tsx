@@ -19,11 +19,7 @@ const ModalConfirmCode: FC<CardProps> =
   const [formValid, setFormValid] = useState(false);
 
   useEffect(() => {
-    if (codeError) {
-      setFormValid(false);
-    } else {
-      setFormValid(true);
-    }
+      setFormValid(!codeError);
   }, [codeError])
 
   const sendCode = () => {
@@ -83,6 +79,8 @@ const ModalConfirmCode: FC<CardProps> =
                 type="text"
                 placeholder='Enter code' 
                 className="confirmcode__input" 
+                minLength={5}
+                required
               />
               {(codeDirty && codeError) && <div className='error' style={{color: 'red'}}>{codeError}</div>}
             </label>
