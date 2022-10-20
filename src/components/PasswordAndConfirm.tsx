@@ -7,7 +7,12 @@ type PasswordProps = {
   minSymbol: number;
   maxSymbol: number;
   isConfirm: boolean;
-  field: object;
+  field: {
+    name: string,
+    onBlur: React.FocusEventHandler<HTMLInputElement>,
+    onChange: React.ChangeEventHandler<HTMLInputElement>,
+    value: string
+  };
   error?: string;
 }
 
@@ -28,10 +33,8 @@ const PasswordAndConfirm = ({ minSymbol, maxSymbol, isConfirm, field, error }: P
       <label className='passwordLabel'>{isConfirm ? 'Confirm password' : 'Password'}
         <input type={visiblePassword ? 'text' : 'password'}
           className={`passwordInput ${error ? `errorInput` : ``}`}
-          onChange={(e) => setValue(e.currentTarget.value)}
           minLength={minSymbol}
           maxLength={maxSymbol}
-          value={value}
           {...field}
           required />
         <img className='image' alt='eye' src={visiblePassword ? open_eye : close_eye} onClick={showPassword} />
