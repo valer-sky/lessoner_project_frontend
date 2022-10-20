@@ -31,10 +31,11 @@ const SignupSchema = Yup.object().shape({
 
 const LoginPage = () => {
   const [isChecked, setIsChecked] = useState(false);
+
   const initialValues: FormValues = {
     email: '',
     password: '',
-    remember: false,
+    remember: isChecked,
   }
 
   return (
@@ -42,7 +43,7 @@ const LoginPage = () => {
       <Formik
         initialValues={initialValues}
         validationSchema={SignupSchema}
-        onSubmit={(values:object) => {
+        onSubmit={(values: object) => {
           console.log(values); //for example that working
         }}>
         <Form>
@@ -63,7 +64,9 @@ const LoginPage = () => {
               <Field name='remember'
                      type='checkbox'
                      id='remember'
-                     onChange={() => {setIsChecked(!isChecked)}}
+                     onChange={() => {
+                       setIsChecked(!isChecked)
+                     }}
                      className={isChecked ? 'checked' : 'unchecked'}
               />
               <label htmlFor='remember' className='labelCheckbox'>
