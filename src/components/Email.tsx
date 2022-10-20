@@ -1,4 +1,3 @@
-import { useState } from "react";
 import './Email.scss';
 
 type EmailProps = {
@@ -6,13 +5,12 @@ type EmailProps = {
     name: string,
     onBlur: React.FocusEventHandler<HTMLInputElement>,
     onChange: React.ChangeEventHandler<HTMLInputElement>,
-    value: string
+    value: string F
   };
   error?: string;
 }
 
 const Email = ({ field, error }: EmailProps): JSX.Element => {
-  const [value, setValue] = useState('');
   return (
     <div className="Email-Wrapper">
       <label htmlFor="email" className="Email-Label">Email</label>
