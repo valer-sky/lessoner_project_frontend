@@ -5,7 +5,7 @@ type EmailProps = {
     name: string,
     onBlur: React.FocusEventHandler<HTMLInputElement>,
     onChange: React.ChangeEventHandler<HTMLInputElement>,
-    value: string F
+    value: string
   };
   error?: string;
 }
