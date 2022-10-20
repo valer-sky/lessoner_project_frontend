@@ -1,35 +1,27 @@
 import { Link } from "react-router-dom";
 import "./Header.css";
-import { useState } from "react";
 
 const Header = () => {
-  const [enterLang, setEnterLang] = useState(true);
-  const engLang = () => {
-    setEnterLang(true);
-  };
-  const ruLang = () => {
-    setEnterLang(false);
-  };
   return (
     <div className="nav-bar">
       <Link to="/">
-        <div>{enterLang ? "Lessoner" : "Учитель"}</div>
+        <div>Lessoner</div>
       </Link>
       <Link to="/categories">
-        <div className="nav-link">{enterLang ? "Categories" : "Категории"}</div>
+        <div >Categories</div>
       </Link>
       <Link to="/lessons">
-        <div className="nav-link">{enterLang ? "Lessons" : "Уроки"}</div>
+        <div >Lessons</div>
       </Link>
       <Link to="/about">
-        <div className="nav-link">{enterLang ? "About" : "O чем"}</div>
+        <div >About</div>
       </Link>
       <div>
-        <button onClick={engLang}>English</button>
-        <button onClick={ruLang}>Русский</button>
+        <button>English</button>
+        <button>Русский</button>
       </div>
       <Link to="/users/sign_in">
-        <button>{enterLang ? "Log in" : "Вход"}</button>
+        <button>LogIn</button>
       </Link>
     </div>
   );

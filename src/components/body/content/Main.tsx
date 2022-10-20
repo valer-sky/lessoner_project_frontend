@@ -5,8 +5,9 @@ import Lessons from "./lessons/Lessons";
 import About from "./about/About";
 import SignIn from "./SignIn/SignIn";
 import SignUp from "./lessoner/SignUp/SignUp";
+
 const Content = () => {
-  return (
+ return (
     <div className="main">
       <Routes>
         <Route path="/" element={<Lessoner />} />
