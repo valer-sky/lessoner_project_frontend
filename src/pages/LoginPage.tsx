@@ -42,7 +42,7 @@ const LoginPage = () => {
       <Formik
         initialValues={initialValues}
         validationSchema={SignupSchema}
-        onSubmit={(values, actions) => {
+        onSubmit={(values:object) => {
           console.log(values); //for example that working
         }}>
         <Form>
