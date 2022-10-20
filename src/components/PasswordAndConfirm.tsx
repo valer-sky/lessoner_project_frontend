@@ -17,7 +17,6 @@ type PasswordProps = {
 }
 
 const PasswordAndConfirm = ({ minSymbol, maxSymbol, isConfirm, field, error }: PasswordProps): JSX.Element => {
-  const [value, setValue] = useState('');
   const [visiblePassword, setVisiblePassword] = useState(false);
 
   const showPassword = (e: React.MouseEvent<HTMLImageElement>): void => {
