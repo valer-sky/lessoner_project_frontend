@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { isEmailExists } from "../services/api/isEmailExists";
 import './Email.scss';
 
 const Email = () => {
@@ -10,11 +11,12 @@ const Email = () => {
 		setValue(e.currentTarget.value);
 	};
 
-	const emailValidation = () => {
+	const emailValidation = async () => {
+		const isExists = await isEmailExists(value);
 		const invalidationRules = [
 			/^\s*$/, // check string not empty
 			/^[^@]+$/, // @ should exist
-			/@[^@]*@/, // onle one @ is admissible
+			/@[^@]*@/, // only one @ is admissible
 			/^\./, // '.' can't be first symbol
 			/\.{2,}.+(?=@)/, // '.' can't repeat more than once in a row
 			/\.(?=@)/, // '.' can't be before @
@@ -24,6 +26,10 @@ const Email = () => {
 
 		if (invalidationRules.some(rule => rule.test(value))) {
 			setError('Please enter a valid email address');
+		} else if (isExists) {
+			setError('This email address is already registered');
+		} else {
+			setError('');
 		}
 	};
 
