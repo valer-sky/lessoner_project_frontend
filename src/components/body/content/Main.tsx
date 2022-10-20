@@ -5,8 +5,6 @@ import Lessons from "./lessons/Lessons";
 import About from "./about/About";
 import SignIn from "./SignIn/SignIn";
 import SignUp from "./lessoner/SignUp/SignUp";
-
-
 const Content = () => {
   return (
     <div className="main">

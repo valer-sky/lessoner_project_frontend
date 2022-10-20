@@ -8,5 +8,4 @@ const getData = async () => {
       console.log(err);
     });
 };
-
 export { getData };
