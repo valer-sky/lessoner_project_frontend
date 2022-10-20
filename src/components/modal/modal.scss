@@ -67,8 +67,8 @@
   flex-direction: row;
 }
 
-.unchecked, .checked{
-  appearance: initial;
+.unchecked, .checked {
+  appearance: none;
   height: 1rem;
   width: 1rem;
   border: 2px solid #0747a6;

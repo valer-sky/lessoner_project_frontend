@@ -7,7 +7,7 @@
 .Email-Label {
   display: block;
   font-weight: bold;
-  margin-bottom: 5px;
+  margin: 5px 0;
   @include fieldsFont;
 }
 
@@ -15,20 +15,23 @@
   width: 100%;
   box-sizing: border-box;
   padding: 0.5em;
-  border: 1px solid #0747a6;
+  border: 2px solid $borderColor;
   border-radius: 0.2em;
   @include fieldsFont;
 
   &:focus {
-    border: 3px solid $borderColor;
+    border: 2px solid $borderColor;
   }
 }
 
 .invalid-Email-Input {
   border: 2px solid $warningColor;
+  color: $warningColor;
 }
 
 .error-Message {
   color: $warningColor;
+  display: block;
+  margin-top: 0.5em;
   @include fieldsFont;
 }

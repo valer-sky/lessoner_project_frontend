@@ -33,21 +33,21 @@ const Email = ({field}: EmailProps): JSX.Element => {
 
   return (
     <div className="Email-Wrapper">
-      <label htmlFor="email" className="Email-Label">Email</label>
-      <input type="text"
-             name="email"
-             id="email"
-             required
-             minLength={3}
-             maxLength={256}
-             className={"Email-Input" + (error ? " invalid-Email-Input" : "")}
-             placeholder="username@gmail.com"
-             value={value}
-             onKeyUp={handleChanges}
-             {...field}
-             onBlur={emailValidation}
-      />
-      {error && <div><span className='error-Message'>{error}</span></div>}
+      <label className="Email-Label">Email
+        <input type="text"
+               name="email"
+               required
+               minLength={3}
+               maxLength={256}
+               className={"Email-Input" + (error ? " invalid-Email-Input" : "")}
+               placeholder="username@gmail.com"
+               value={value}
+               onKeyUp={handleChanges}
+               {...field}
+               onBlur={emailValidation}
+        />
+        {error && <div><span className='error-Message'>{error}</span></div>}
+      </label>
     </div>
   )
 };
