@@ -64,7 +64,7 @@ const LoginPage = () => {
               <Field name='remember'
                      type='checkbox'
                      id='remember'
-                     onChange={() => {
+                     onClick={() => {
                        setIsChecked(!isChecked)
                      }}
                      className={isChecked ? 'checked' : 'unchecked'}

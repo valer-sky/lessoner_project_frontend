@@ -10,7 +10,7 @@ const Email = ({field}: EmailProps): JSX.Element => {
   const [error, setError] = useState('');
   const handleChanges = (e: React.FormEvent<HTMLInputElement>): void => {
     e.preventDefault();
-    setValue(e.currentTarget.value);
+    setValue(e.currentTarget.value.trim());
   };
   const emailValidation = () => {
     const invalidationRules = [
@@ -26,6 +26,8 @@ const Email = ({field}: EmailProps): JSX.Element => {
 
     if (invalidationRules.some(rule => rule.test(value))) {
       setError('Please enter a valid email address');
+    } else {
+      setError('');
     }
   };
 
