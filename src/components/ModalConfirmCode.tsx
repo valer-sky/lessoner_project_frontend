@@ -15,10 +15,10 @@ const ModalConfirmCode: FC<CardProps> =
   const [code, setCode] = useState('');
   const [codeIsDirty, setCodeISDirty] = useState(false);
   const [codeError, setCodeError] = useState('The input field must be filled');
-  const [formValid, isFormValid] = useState(false);
+  const [isFormValid, setIsFormValid] = useState(false);
 
   useEffect(() => {
-    isFormValid(!codeError);
+    setIsFormValid(!codeError);
   }, [codeError])
 
   const sendCode = () => {
@@ -88,7 +88,7 @@ const ModalConfirmCode: FC<CardProps> =
             </a>
             <button
               type='submit'
-              disabled={!formValid}
+              disabled={!isFormValid}
               onClick={sendCode}
               className="confirmcode__finish"
             >
