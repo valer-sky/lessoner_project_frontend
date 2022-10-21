@@ -7,9 +7,10 @@ type PasswordProps = {
   minSymbol: number;
   maxSymbol: number;
   isConfirm: boolean;
+  field: object;
 }
 
-const PasswordAndConfirm = ({minSymbol, maxSymbol, isConfirm}: PasswordProps): JSX.Element => {
+const PasswordAndConfirm = ({minSymbol, maxSymbol, isConfirm, field}: PasswordProps): JSX.Element => {
   const passwordRegex = new RegExp("^[-/=!#$%&'*+?^_`{|}~.A-Z0-9]{" + minSymbol + "," + maxSymbol + "}$", "i");
   const [value, setValue] = useState('');
   const [error, setError] = useState('');
@@ -40,10 +41,16 @@ const PasswordAndConfirm = ({minSymbol, maxSymbol, isConfirm}: PasswordProps): J
     <div className='password'>
       <label className='passwordLabel'>{isConfirm ? 'Confirm password' : 'Password'}
         <input type={visiblePassword ? 'text' : 'password'}
-               className={'passwordInput ' + `${(error && isBlur) ? 'errorInput' : ''}`}
-               onChange={fieldHandler}
+               minLength={minSymbol}
+               maxLength={maxSymbol}
+               value={value}
+               placeholder='At least 6 characters'
+               onKeyUp={fieldHandler}
+               {...field}
                onBlur={blurHandle}
-               required/>
+               className={`passwordInput${(error && isBlur) ? ' errorInput' : ''}`}
+               required
+        />
         <img className='image' alt='eye' src={visiblePassword ? open_eye : close_eye} onClick={showPassword}/>
         {(error && isBlur) && <span className='error'>{error}</span>}
       </label>
