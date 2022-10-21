@@ -65,11 +65,10 @@
 .checkbox {
   display: flex;
   flex-direction: row;
-
 }
 
-.unchecked {
-  appearance: initial;
+.unchecked, .checked {
+  appearance: none;
   height: 1rem;
   width: 1rem;
   border: 2px solid #0747a6;
@@ -77,16 +76,7 @@
   margin: 3px 3px 3px 4px;
 }
 
-.checked{
-  appearance: initial;
-  height: 1rem;
-  width: 1rem;
-  border: 2px solid #0747a6;
-  box-sizing: border-box;
-  margin: 3px 3px 3px 4px;
-}
-
-.unchecked::before {
+.checked::before {
   content: "\2714";
   font-size: 1rem;
   color: #000;

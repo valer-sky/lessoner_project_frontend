@@ -39,7 +39,7 @@ const LoginPage = () => {
   const initialValues: FormValues = {
     email: '',
     password: '',
-    remember: false,
+    remember: isChecked,
   }
 
   return (
@@ -47,7 +47,7 @@ const LoginPage = () => {
       <Formik
         initialValues={initialValues}
         validationSchema={SignupSchema}
-        onSubmit={(values:object) => {
+        onSubmit={(values: object) => {
           dispatch(getLogin(values))
           console.log(values); //for example that working
         }}>
@@ -74,7 +74,7 @@ const LoginPage = () => {
                 name='remember'
                 type='checkbox'
                 id='remember'
-                onChange={() => {
+                onClick={() => {
                   setIsChecked(!isChecked)
                 }}
                 className={isChecked ? 'checked' : 'unchecked'}
