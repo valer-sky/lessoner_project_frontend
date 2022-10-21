@@ -1,4 +1,3 @@
-import { connected } from 'process';
 import React,  {FC, useEffect, useState} from 'react';
 import './ModalConfirmCode.scss';
 
@@ -32,7 +31,7 @@ const ModalConfirmCode: FC<CardProps> =
 
   const codeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCode(e.target.value)
-    if (e.target.value.length != 5) {
+    if (e.target.value.length !== 5) {
       setCodeError('Code must contain 5 characters');
       if (!e.target.value) {
         setCodeError('The input field must be filled');

@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import logo from './logo.svg';
 import './App.css';
 import ModalConfirmCode from './components/ModalConfirmCode';
 import './components/ModalConfirmCode'
