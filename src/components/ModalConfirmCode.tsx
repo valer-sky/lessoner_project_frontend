@@ -2,38 +2,39 @@ import React,  {FC, useEffect, useState} from 'react';
 import './ModalConfirmCode.scss';
 
 interface CardProps {
-  active: boolean;
-  setActive: (bool: boolean) => void;
+  isActive: boolean;
+  setIsActive: (bool: boolean) => void;
 }
 
 const ModalConfirmCode: FC<CardProps> = 
   ({
-    active, 
-    setActive,
+    isActive, 
+    setIsActive,
   }) => {
   
   const [code, setCode] = useState('');
-  const [codeDirty, setCodeDirty] = useState(false);
+  const [codeIsDirty, setCodeISDirty] = useState(false);
   const [codeError, setCodeError] = useState('The input field must be filled');
-  const [formValid, setFormValid] = useState(false);
+  const [formValid, isFormValid] = useState(false);
 
   useEffect(() => {
-    setFormValid(!codeError);
+    isFormValid(!codeError);
   }, [codeError])
 
   const sendCode = () => {
-    setActive(false);
+    setIsActive(false);
   }
 
   const blurHandler = () => {
-    setCodeDirty(true);
+    setCodeISDirty(true);
   }
 
   const codeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setCode(e.target.value)
-    if (e.target.value.length !== 5) {
+    const value = e.target.value;
+    setCode(value)
+    if (value.length !== 5) {
       setCodeError('Code must contain 5 characters');
-      if (!e.target.value) {
+      if (!value) {
         setCodeError('The input field must be filled');
       }
     } else {
@@ -43,11 +44,11 @@ const ModalConfirmCode: FC<CardProps> =
 
   return (
     <div 
-      className={active ? 'modal active' : 'modal'}
-      onClick={() => setActive(false)}  
+      className={isActive ? 'modal active' : 'modal'}
+      onClick={() => setIsActive(false)}  
     >
       <div 
-        className={active ? 'modal__content active' : 'modal__content'}
+        className={isActive ? 'modal__content active' : 'modal__content'}
         onClick={e => e.stopPropagation()}
       >
         <div className="confirmcode__content">
@@ -79,7 +80,7 @@ const ModalConfirmCode: FC<CardProps> =
                 placeholder='Enter code' 
                 className="confirmcode__input" 
               />
-              {(codeDirty && codeError) && <div className='error' style={{color: 'red'}}>{codeError}</div>}
+              {(codeIsDirty && codeError) && <div className='error'>{codeError}</div>}
             </label>
             
             <a href="#!" className="confirmcode__link-resend">

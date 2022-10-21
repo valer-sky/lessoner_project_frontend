@@ -4,16 +4,16 @@ import ModalConfirmCode from './components/ModalConfirmCode';
 import './components/ModalConfirmCode'
 
 function App() {
-  const [modalActive, setModalActive] = useState<boolean>(false);
+  const [modalActive, isModalActive] = useState(false);
   return (
     <div className="App">
       <button 
         className='open-btn' 
-        onClick={() => setModalActive(true)}
+        onClick={() => isModalActive(true)}
       >
         Open modal
       </button>
-      <ModalConfirmCode active={modalActive} setActive={setModalActive}/>
+      <ModalConfirmCode isActive={modalActive} setIsActive={isModalActive}/>
     </div>
   );
 }
