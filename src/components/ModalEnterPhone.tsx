@@ -77,7 +77,7 @@ const ModalEnterPhone: FC<CardProps> =
                   placeholder='+375000000000'
                   className={"enterphone__input"} 
                 />
-                {(isPhoneDirty && phoneError) && <div className='error' style={{color: 'red'}}>{phoneError}</div>}
+                {(isPhoneDirty && phoneError) && <div className='error'>{phoneError}</div>}
               </label>
               <button
                 type='submit'
