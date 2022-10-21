@@ -21,7 +21,11 @@ const PasswordAndConfirm = ({minSymbol, maxSymbol, isConfirm, field}: PasswordPr
     if (passwordRegex.test(e.currentTarget.value) && !isConfirm) {
       setError('');
     } else {
-      setError('Password must contain from 6 to 256 characters');
+      if (minSymbol === maxSymbol) {
+        setError(`Password must contain ${minSymbol} characters`);
+      } else {
+        setError(`Password must contain from ${minSymbol} to ${maxSymbol} characters`);
+      }
     }
     setValue(e.currentTarget.value);
   }
@@ -44,7 +48,7 @@ const PasswordAndConfirm = ({minSymbol, maxSymbol, isConfirm, field}: PasswordPr
                minLength={minSymbol}
                maxLength={maxSymbol}
                value={value}
-               placeholder='At least 6 characters'
+               placeholder={`At least ${minSymbol} characters`}
                onKeyUp={fieldHandler}
                {...field}
                onBlur={blurHandle}

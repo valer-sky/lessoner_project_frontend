@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import './Email.scss';
+import {EMAIL} from "../constants";
 
 type EmailProps = {
   field: object;
@@ -37,8 +38,8 @@ const Email = ({field}: EmailProps): JSX.Element => {
         <input type="text"
                name="email"
                required
-               minLength={3}
-               maxLength={256}
+               minLength={EMAIL.min}
+               maxLength={EMAIL.max}
                className={"Email-Input" + (error ? " invalid-Email-Input" : "")}
                placeholder="username@gmail.com"
                value={value}

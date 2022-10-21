@@ -7,12 +7,11 @@ import Button from "../components/Button";
 import {Link} from "react-router-dom";
 import {useState} from "react";
 import {useAppDispatch} from "../store/hooks";
-import {getLogin} from "../store/loginName/loginSlice"
+import {getLogin} from "../store/loginName/loginSlice";
+import {PASSWORD, EMAIL} from "../constants";
 
-const minSymbol = 6;
-const maxSymbol = 256;
 const mailRgex = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
-const passwordRegex = new RegExp("^[-/=!#$%&'*+?^_`{|}~.A-Z0-9]{" + minSymbol + "," + maxSymbol + "}$", "i");
+const passwordRegex = new RegExp("^[-/=!#$%&'*+?^_`{|}~.A-Z0-9]{" + PASSWORD.min + "," + PASSWORD.max + "}$", "i");
 
 interface FormValues {
   email: string;
@@ -23,12 +22,12 @@ interface FormValues {
 const SignupSchema = Yup.object().shape({
   email: Yup.string()
     .matches(mailRgex)
-    .min(3, 'Email should be more than 3 characters')
-    .max(256, 'Email should be less than 256 characters'),
+    .min(EMAIL.min, 'Email should be more than 3 characters')
+    .max(EMAIL.max, 'Email should be less than 256 characters'),
   password: Yup.string()
     .matches(passwordRegex)
-    .min(6, 'Password should be more than 6 characters')
-    .max(256, 'Password should be less than 256 characters'),
+    .min(PASSWORD.min, 'Password should be more than 6 characters')
+    .max(PASSWORD.max, 'Password should be less than 256 characters'),
 })
 
 const LoginPage = () => {
@@ -65,8 +64,8 @@ const LoginPage = () => {
             <Field
               name='password'
               component={Password}
-              minSymbol={minSymbol}
-              maxSymbol={maxSymbol}
+              minSymbol={PASSWORD.min}
+              maxSymbol={PASSWORD.max}
               isConfirm={false}
             />
             <div className='checkbox'>
@@ -89,7 +88,6 @@ const LoginPage = () => {
             <Button
               buttonType={'submit'}
               buttonText={'Sign in'}
-              onClick={undefined}
             />
             <a href='#' className='passwordLink'>Forgot your password?</a>
           </div>
