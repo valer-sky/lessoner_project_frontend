@@ -2,33 +2,31 @@ import React,  {FC, useEffect, useState} from 'react';
 import './ModalEnterPhone.scss';
 
 interface CardProps {
-  active: boolean;
-  setActive: (bool: boolean) => void;
+  isActive: boolean;
+  setIsActive: (bool: boolean) => void;
 }
 
 const ModalEnterPhone: FC<CardProps> = 
   ({
-    active, 
-    setActive,
+    isActive, 
+    setIsActive,
   }) => {
-    console.log(active)
-    console.log(setActive)
   
   const [phone, setPhone] = useState('');
-  const [isPhoneDirty, setPhoneDirty] = useState(false);
+  const [isPhoneDirty, setIsPhoneDirty] = useState(false);
   const [phoneError, setPhoneError] = useState('The input field must be filled');
-  const [formValid, setFormValid] = useState(false);
+  const [isFormValid, setIsFormValid] = useState(false);
 
   useEffect(() => {
-      setFormValid(!phoneError);
+      setIsFormValid(!phoneError);
   }, [phoneError])
 
   const sendphone = () => {
-    setActive(false);
+    setIsActive(false);
   }
 
   const blurHandler = () => {
-    setPhoneDirty(true);
+    setIsPhoneDirty(true);
   }
 
   
@@ -51,11 +49,11 @@ const ModalEnterPhone: FC<CardProps> =
   return (
     <div>
       <div 
-        className={active ? 'modal active' : 'modal'}
-        onClick={() => setActive(false)}  
+        className={isActive ? 'modal active' : 'modal'}
+        onClick={() => setIsActive(false)}  
       >
         <div 
-          className={active ? 'modal__content active' : 'modal__content'}
+          className={isActive ? 'modal__content active' : 'modal__content'}
           onClick={e => e.stopPropagation()}
         >
           <div className="enterphone__content">
@@ -83,7 +81,7 @@ const ModalEnterPhone: FC<CardProps> =
               </label>
               <button
                 type='submit'
-                disabled={!formValid}
+                disabled={!isFormValid}
                 onClick={sendphone}
                 className="enterphone__submit"
               >

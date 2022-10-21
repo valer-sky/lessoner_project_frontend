@@ -4,16 +4,16 @@ import ModalEnterPhone from './components/ModalEnterPhone';
 import './components/ModalEnterPhone'
 
 function App() {
-  const [modalActive, setModalActive] = useState(false);
+  const [modalActive, isModalActive] = useState(false);
   return (
     <div className="App">
       <button 
         className='open-btn' 
-        onClick={() => setModalActive(true)}
+        onClick={() => isModalActive(true)}
       >
         Open modal
       </button>
-      <ModalEnterPhone active={modalActive} setActive={setModalActive}/>
+      <ModalEnterPhone isActive={modalActive} setIsActive={isModalActive}/>
     </div>
   );
 }
