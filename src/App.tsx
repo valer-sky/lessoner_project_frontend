@@ -1,12 +1,20 @@
-import React from 'react';
-import UserName from "./components/UserName"
-import {USERNAME} from "./constants"
+import { useEffect } from "react";
+import { getData } from "./services/services";
+import "./App.css";
+import { BrowserRouter } from "react-router-dom";
+import Body from "./components/body/Body";
 
-function App() {
+function App(): any {
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
-    <div>
-      <UserName minSymbol={USERNAME.min} maxSymbol={USERNAME.max}/>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Body />
+      </div>
+    </BrowserRouter>
   );
 }
 
