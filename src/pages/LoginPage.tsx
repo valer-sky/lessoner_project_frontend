@@ -47,8 +47,8 @@ const LoginPage = () => {
       <Formik
         initialValues={initialValues}
         validationSchema={SignupSchema}
-        onSubmit={(values) => {
-          dispatch(getLogin(values.email))
+        onSubmit={(values:object) => {
+          dispatch(getLogin(values))
           console.log(values); //for example that working
         }}>
         <Form>

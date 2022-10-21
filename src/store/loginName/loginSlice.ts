@@ -3,12 +3,11 @@ import {BACKEND_URL} from "../../constants";
 
 export const getLogin = createAsyncThunk(
   'login/getLoginStatus',
-  async (value: string) => {
-    const response = await fetch(`${BACKEND_URL}/check_username?name=${value}`);
+  async (value: any) => {
+    const response = await fetch(`${BACKEND_URL}/login?email=${value.email}&password=${value.password}`, {method:'POST'});
     const data = await response.json();
     if (response.status === 200) {
-      console.log(data.usernameExists)
-      return data.usernameExists;
+      return data.jwt;
     } else {
       return null;
     }
@@ -27,7 +26,6 @@ const loginSlice = createSlice({
   extraReducers(builder) {
     builder.addCase(getLogin.fulfilled, (state, action) => {
       state.login = action.payload;
-      console.log(state.login)
       localStorage.setItem('JWT', `${state.login}`);
     })
   }
