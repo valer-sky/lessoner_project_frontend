@@ -9,11 +9,11 @@ interface FormValues {
   email: string;
   password: string;
   confirmPassword: string;
-  termsAndConditions: boolean;
+  hasTermsAndConditions: boolean;
 }
 
 interface FormErrors {
-  [key: string]: any
+  [key: string]: string
 }
 
 const emailInvalidationRules = [
@@ -36,7 +36,7 @@ const FirstRegistrationForm = () => {
     email: '',
     password: '',
     confirmPassword: '',
-    termsAndConditions: false
+    hasTermsAndConditions: false
   }
 
   const validate = async (values: FormValues) => {
@@ -50,7 +50,7 @@ const FirstRegistrationForm = () => {
       errors.email = 'Please enter a valid email address';
     }
     if (!passwordRegex.test(values.password)) {
-      errors.password = `An invalid character is present in the password. Password must be between ${minSymbol} and ${maxSymbol} characters; upper or lower case Latin letters (a–z, A–Z);numbers from 0 to 9;symbols ! # $ % & ' * + - / = ? ^ _ \` { | } ~`;
+      errors.password = `An invalid character is present in the password. Password must be between ${minSymbol} and ${maxSymbol} characters; upper or lower case Latin letters (a–z, A–Z); numbers from 0 to 9; symbols ! # $ % & ' * + - / = ? ^ _ \` { | } ~`;
     }
     if (values.password.length >= maxSymbol || values.password.length < minSymbol) {
       errors.password = `Password must be between ${minSymbol} and ${maxSymbol} characters`;
@@ -58,8 +58,8 @@ const FirstRegistrationForm = () => {
     if (values.password !== values.confirmPassword) {
       errors.confirmPassword = 'Passwords do not match';
     }
-    if (!(values.termsAndConditions)) {
-      errors.termsAndConditions = 'You must consent to the processing of your personal data, in accordance with the Terms';
+    if (!(values.hasTermsAndConditions)) {
+      errors.hasTermsAndConditions = 'You must consent to the processing of your personal data, in accordance with the Terms';
     }
     return errors;
   }
@@ -82,7 +82,7 @@ const FirstRegistrationForm = () => {
               <Field name='email' component={Email} error={touched.email ? errors.email : undefined} />
               <Field name='password' component={PasswordAndConfirm} minSymbol={minSymbol} maxSymbol={maxSymbol} isConfirm={false} error={touched.password ? errors.password : undefined} />
               <Field name='confirmPassword' component={PasswordAndConfirm} minSymbol={minSymbol} maxSymbol={maxSymbol} isConfirm={true} error={touched.confirmPassword ? errors.confirmPassword : undefined} />
-              <Field name='termsAndConditions' component={Checkbox} error={touched.termsAndConditions ? errors.termsAndConditions : undefined} />
+              <Field name='hasTermsAndConditions' component={Checkbox} error={touched.hasTermsAndConditions ? errors.hasTermsAndConditions : undefined} />
               <button type="submit">Next</button>
             </Form>
           )
