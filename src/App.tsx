@@ -1,20 +1,20 @@
-import React, {useState} from 'react';
-import './App.css';
-import ModalConfirmCode from './components/ModalConfirmCode';
-import './components/ModalConfirmCode'
+import { useEffect } from "react";
+import { getData } from "./services/services";
+import "./App.css";
+import { BrowserRouter } from "react-router-dom";
+import Body from "./components/body/Body";
 
-function App() {
-  const [modalActive, isModalActive] = useState(false);
+function App(): any {
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
-    <div className="App">
-      <button 
-        className='open-btn' 
-        onClick={() => isModalActive(true)}
-      >
-        Open modal
-      </button>
-      <ModalConfirmCode isActive={modalActive} setIsActive={isModalActive}/>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Body />
+      </div>
+    </BrowserRouter>
   );
 }
 
