@@ -3,13 +3,13 @@
 #root {
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 .field {
   width: 30%;
   padding: 1rem;
   background: whitesmoke;
+  margin: auto;
 }
 
 .modal {
