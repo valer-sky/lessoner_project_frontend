@@ -38,8 +38,8 @@ const Email = ({field}: EmailProps): JSX.Element => {
         <input type="text"
                name="email"
                required
-               minLength={EMAIL.min}
-               maxLength={EMAIL.max}
+               minLength={EMAIL.minLength}
+               maxLength={EMAIL.maxLength}
                className={"Email-Input" + (error ? " invalid-Email-Input" : "")}
                placeholder="username@gmail.com"
                value={value}

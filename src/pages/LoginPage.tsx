@@ -11,7 +11,7 @@ import {getLogin} from "../store/loginName/loginSlice";
 import {PASSWORD, EMAIL} from "../constants";
 
 const mailRgex = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
-const passwordRegex = new RegExp("^[-/=!#$%&'*+?^_`{|}~.A-Z0-9]{" + PASSWORD.min + "," + PASSWORD.max + "}$", "i");
+const passwordRegex = new RegExp("^[-/=!#$%&'*+?^_`{|}~.A-Z0-9]{" + PASSWORD.minLength + "," + PASSWORD.maxLength + "}$", "i");
 
 interface FormValues {
   email: string;
@@ -22,12 +22,12 @@ interface FormValues {
 const SignupSchema = Yup.object().shape({
   email: Yup.string()
     .matches(mailRgex)
-    .min(EMAIL.min, 'Email should be more than 3 characters')
-    .max(EMAIL.max, 'Email should be less than 256 characters'),
+    .min(EMAIL.minLength, 'Email should be more than 3 characters')
+    .max(EMAIL.maxLength, 'Email should be less than 256 characters'),
   password: Yup.string()
     .matches(passwordRegex)
-    .min(PASSWORD.min, 'Password should be more than 6 characters')
-    .max(PASSWORD.max, 'Password should be less than 256 characters'),
+    .min(PASSWORD.minLength, 'Password should be more than 6 characters')
+    .max(PASSWORD.maxLength, 'Password should be less than 256 characters'),
 })
 
 const LoginPage = () => {
@@ -64,8 +64,8 @@ const LoginPage = () => {
             <Field
               name='password'
               component={Password}
-              minSymbol={PASSWORD.min}
-              maxSymbol={PASSWORD.max}
+              minSymbol={PASSWORD.minLength}
+              maxSymbol={PASSWORD.maxLength}
               isConfirm={false}
             />
             <div className='checkbox'>
