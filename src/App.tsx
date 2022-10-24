@@ -1,11 +1,24 @@
-import './App.css';
-import FirstRegistrationForm from './components/FirstRegistrationForm';
+import { useEffect } from "react";
+import { getData } from "./services/services";
+import "./App.css";
+import { BrowserRouter, Routes, Route} from "react-router-dom";
+import Body from "./components/body/Body";
+import LoginPage from './pages/LoginPage'
 
-function App() {
+function App(): any {
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
-    <div className="App">
-      <FirstRegistrationForm />
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Body />
+        <Routes>
+        <Route path='/users/sign_in' element={<LoginPage/>}/>
+      </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 

@@ -17,8 +17,29 @@ type PasswordProps = {
 }
 
 const PasswordAndConfirm = ({ minSymbol, maxSymbol, isConfirm, field, error }: PasswordProps): JSX.Element => {
+  const passwordRegex = new RegExp("^[-/=!#$%&'*+?^_`{|}~.A-Z0-9]{" + minSymbol + "," + maxSymbol + "}$", "i");
+  const [value, setValue] = useState('');
+  const [error, setError] = useState('');
+  const [isBlur, setIsBlur] = useState(false);
   const [visiblePassword, setVisiblePassword] = useState(false);
 
+  const fieldHandler = (e: React.FormEvent<HTMLInputElement>) => {
+    if (passwordRegex.test(e.currentTarget.value) && !isConfirm) {
+      setError('');
+    } else {
+      if (minSymbol === maxSymbol) {
+        setError(`Password must contain ${minSymbol} characters`);
+      } else {
+        setError(`Password must contain from ${minSymbol} to ${maxSymbol} characters`);
+      }
+    }
+    setValue(e.currentTarget.value);
+  }
+
+  const blurHandle = (e: React.FormEvent<HTMLInputElement>) => {
+    setIsBlur(true);
+  }
+  
   const showPassword = (e: React.MouseEvent<HTMLImageElement>): void => {
     if (visiblePassword !== false) {
       setVisiblePassword(false);
@@ -31,13 +52,18 @@ const PasswordAndConfirm = ({ minSymbol, maxSymbol, isConfirm, field, error }: P
     <div className='password'>
       <label className='passwordLabel'>{isConfirm ? 'Confirm password' : 'Password'}
         <input type={visiblePassword ? 'text' : 'password'}
-          className={`passwordInput ${error ? `errorInput` : ``}`}
-          minLength={minSymbol}
-          maxLength={maxSymbol}
-          {...field}
-          required />
-        <img className='image' alt='eye' src={visiblePassword ? open_eye : close_eye} onClick={showPassword} />
-        {error && <span className='error'>{error}</span>}
+               minLength={minSymbol}
+               maxLength={maxSymbol}
+               value={value}
+               placeholder={`At least ${minSymbol} characters`}
+               onKeyUp={fieldHandler}
+               {...field}
+               onBlur={blurHandle}
+               className={`passwordInput${(error && isBlur) ? ' errorInput' : ''}`}
+               required
+        />
+        <img className='image' alt='eye' src={visiblePassword ? open_eye : close_eye} onClick={showPassword}/>
+        {(error && isBlur) && <span className='error'>{error}</span>}
       </label>
     </div>
   )
