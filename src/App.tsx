@@ -1,15 +1,19 @@
-import React from 'react';
-import './App.css';
-import LoginPage from './pages/LoginPage'
-import {BrowserRouter, Routes, Route, Link} from 'react-router-dom';
+import { useEffect } from "react";
+import { getData } from "./services/services";
+import "./App.css";
+import { BrowserRouter } from "react-router-dom";
+import Body from "./components/body/Body";
 
-function App() {
+function App(): any {
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
     <BrowserRouter>
-      <Link to="/login"><p>Log in</p></Link>
-      <Routes>
-        <Route path='/login' element={<LoginPage/>}/>
-      </Routes>
+      <div className="App">
+        <Body />
+      </div>
     </BrowserRouter>
   );
 }
