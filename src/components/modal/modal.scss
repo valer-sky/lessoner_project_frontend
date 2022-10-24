@@ -14,8 +14,9 @@
 
 .modal {
   position: relative;
-  padding: 1rem;
+  padding: 0 1rem;
   border: 2px solid $borderColor;
+  text-align: initial;
 }
 
 .close {
