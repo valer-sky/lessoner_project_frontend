@@ -89,7 +89,9 @@ const LoginPage = () => {
               buttonType={'submit'}
               buttonText={'Sign in'}
             />
-            <a href='#' className='passwordLink'>Forgot your password?</a>
+            <Link to={'/forgotPassword'} className='passwordLink'>
+            Forgot your password?
+            </Link>
           </div>
         </Form>
       </Formik>
