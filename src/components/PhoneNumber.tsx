@@ -1,27 +1,36 @@
 import {useState} from "react";
 import "./phoneNumber.scss";
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
 
-const PhoneNumber = () => {
-  const numberRegex = /[^\d]$/;
-  const [value, setValue] = useState('');
+const PhoneNumber = ({setError, error, phoneNumber, setPhoneNumber}: any) => {
   const [isBlur, setIsBlur] = useState(false);
-
-  const fieldHandler = (e: React.FormEvent<HTMLInputElement>) => {
-    if (!numberRegex.test(e.currentTarget.value)) {
-      setValue(e.currentTarget.value);
-    }
-  }
-
   return (
     <div className='phone Number'>
-      <label className='phoneNumberLabel'>Phone number</label>
-      <input
-        className='phoneNumberInput'
-        type='text'
-        onChange={fieldHandler}
-        value={value}
-        required
-      />
+      <label className='phoneNumberLabel'>Phone number
+        <PhoneInput
+          onChange={(value: string, country: any, e: React.ChangeEvent<HTMLInputElement>, formattedValue: string) => {
+            if (formattedValue.length !== country.format.length) {
+              setError('Phone number incorrect');
+            } else {
+              setError('')
+            }
+            setPhoneNumber(value);
+          }}
+          onBlur={() => {
+            setIsBlur(true);
+          }}
+          inputStyle={{width: '100%', borderColor: '#0B456F'}}
+          buttonStyle={{borderColor: '#0B456F'}}
+          dropdownStyle={{width: 'auto', border: '1px solid #0B456F', borderRadius: '3px'}}
+          country='us'
+          value={phoneNumber}
+          inputProps={{
+            required: true,
+          }}
+        />
+        {(error && isBlur) && <span className='error'>{error}</span>}
+      </label>
     </div>
   )
 }
