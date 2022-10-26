@@ -3,13 +3,21 @@ import "./phoneNumber.scss";
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 
-const PhoneNumber = ({setError, error, phoneNumber, setPhoneNumber}: any) => {
+type PhoneNumberProps = {
+  error: string;
+  setError: (str: string) => void;
+  phoneNumber: string,
+  setPhoneNumber: (str: string) => void;
+}
+
+const PhoneNumber = ({setError, error, phoneNumber, setPhoneNumber}: PhoneNumberProps) => {
   const [isBlur, setIsBlur] = useState(false);
   return (
     <div className='phone Number'>
       <label className='phoneNumberLabel'>Phone number
         <PhoneInput
           onChange={(value: string, country: any, e: React.ChangeEvent<HTMLInputElement>, formattedValue: string) => {
+            console.log(typeof country.format)
             if (formattedValue.length !== country.format.length) {
               setError('Phone number incorrect');
             } else {
