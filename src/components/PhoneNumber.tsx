@@ -12,19 +12,21 @@ type PhoneNumberProps = {
 
 const PhoneNumber = ({setError, error, phoneNumber, setPhoneNumber}: PhoneNumberProps) => {
   const [isBlur, setIsBlur] = useState(false);
+
+  const checkNumber = (value: string, country: any, e: React.ChangeEvent<HTMLInputElement>, formattedValue: string) => {
+    if (formattedValue.length !== country.format.length) {
+      setError('Phone number incorrect');
+    } else {
+      setError('')
+    }
+    setPhoneNumber(value);
+  }
+
   return (
     <div className='phone Number'>
       <label className='phoneNumberLabel'>Phone number
         <PhoneInput
-          onChange={(value: string, country: any, e: React.ChangeEvent<HTMLInputElement>, formattedValue: string) => {
-            console.log(typeof country.format)
-            if (formattedValue.length !== country.format.length) {
-              setError('Phone number incorrect');
-            } else {
-              setError('')
-            }
-            setPhoneNumber(value);
-          }}
+          onChange={checkNumber}
           onBlur={() => {
             setIsBlur(true);
           }}
