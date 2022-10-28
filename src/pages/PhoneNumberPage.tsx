@@ -3,9 +3,11 @@ import Button from "../components/Button";
 import PhoneNumber from "../components/PhoneNumber";
 import {useState} from "react";
 
+const defaultCauntry = '375';
+
 const PhoneNumberPage = () => {
   const [error, setError] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('375');
+  const [phoneNumber, setPhoneNumber] = useState(defaultCauntry);
 
   return (
     <div className='field'>
@@ -15,8 +17,8 @@ const PhoneNumberPage = () => {
                      error={error}
                      phoneNumber={phoneNumber}
                      setPhoneNumber={setPhoneNumber}/>
-        <Button buttonType={'submit'}
-                buttonText={'Submit code'}/>
+        <Button buttonType='submit'
+                buttonText='Submit code'/>
       </div>
     </div>
   )
