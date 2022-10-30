@@ -3,7 +3,7 @@ import Button from "../components/Button";
 import PhoneNumber from "../components/PhoneNumber";
 import {useState} from "react";
 
-const defaultCauntry = '375';
+const defaultCountry = '375';
 
 const PhoneNumberPage = () => {
   const [error, setError] = useState('');
