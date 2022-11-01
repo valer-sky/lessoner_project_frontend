@@ -4,8 +4,7 @@ import Body from "./components/body/Body";
 import LoginPage from './pages/LoginPage'
 import FirstRegistrationForm from "./components/FirstRegistrationForm";
 import {useAppDispatch} from "./store/hooks"; //for example after delete
-import {showDefaultPage, showStudentPage, showSectionPage, showMyPage} from "./store/loginName/headerSlice";
-
+import {showDefaultPage, showStudentPage, showSectionPage, showMyPage} from "./store/header/headerSlice";
 
 
 function App(): any {
@@ -21,10 +20,14 @@ function App(): any {
         </Routes>
 
         <div style={{display: 'flex', flexDirection: 'column'}}>
-          <button className='notAthorised' onClick={() => dispatch(showDefaultPage)}>Not athorised</button>
-          <button className='athorised' onClick={() => dispatch(showStudentPage)}>Athorised student in study section</button>
-          <button className='creatorSS' onClick={() => dispatch(showSectionPage)}>Athorised student/creator in study section</button>
-          <button className='creatorMySS' onClick={() => dispatch(showMyPage)}>Athorised creator in my studio section</button>
+          <button className='notAthorised' onClick={() => dispatch(showDefaultPage())}>Not athorised</button>
+          <button className='athorised' onClick={() => dispatch(showStudentPage())}>Athorised student in study section
+          </button>
+          <button className='creatorSS' onClick={() => dispatch(showSectionPage())}>Athorised student/creator in study
+            section
+          </button>
+          <button className='creatorMySS' onClick={() => dispatch(showMyPage())}>Athorised creator in my studio section
+          </button>
         </div>
 
       </div>

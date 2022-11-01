@@ -1,4 +1,4 @@
-import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {createSlice} from "@reduxjs/toolkit";
 
 type Header = {
   isDefaultHeader: boolean;
@@ -17,7 +17,7 @@ const headerSlice = createSlice({
     showDefaultPage: (state) => {
       state.isDefaultHeader = false;
     },
-    showStudentPage: (state) => {
+    showStudentPage: state => {
       state.isDefaultHeader = true;
       state.page = '';
     },

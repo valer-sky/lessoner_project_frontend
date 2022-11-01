@@ -5,13 +5,14 @@
   justify-content: space-between;
   height: 64px;
   background: #FFFFFF;
-  border:1px solid gray; /*for exam after delete border*/
+  border: 1px solid gray; /*for exam after delete border*/
 }
 
 .menu {
   position: relative;
   width: 64px;
   height: 100%;
+  padding-left: 5px;
 }
 
 .menuActive {
@@ -65,20 +66,67 @@
 
 .titleHeader {
   display: inline-block;
-  margin: 0 5px;
+  margin: 0 0 0 5px;
+}
+
+.myStudio {
+  color: #455FCE;
+  margin-left: 15px;
+  font-family: 'Apercu Pro';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.15px;
+  text-decoration: none;
+}
+
+.searchButton {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 24px;
+  width: 544px;
+}
+
+.magnifier {
+  display: none;
 }
 
 .search {
-  width: 301px;
+  width: 100%;
   height: 36px;
   border: 1px solid #EAEAEA;
   border-radius: 8px;
   background: #FFFFFF;
   margin-right: 16px;
+  padding-left: 12px;
+}
+
+.search::placeholder {
+  background-image: url('../../icons/Magnifier.svg');
+  background-repeat: no-repeat;
+  background-position: left;
+  text-indent: 20px;
+  color: #EAEAEA;
 }
 
 .loginLink {
   display: inline-block;
+}
+
+.sectionButton {
+  display: flex;
+  margin-right: 38px;
+  text-decoration: none;
+}
+
+.sectionButton div {
+  display: flex;
+  align-items: center;
+}
+
+.avatarLogin {
+  display: none;
 }
 
 .buttonLogin {
@@ -88,5 +136,73 @@
   color: #EAEAEA;
   border: none;
   border-radius: 28px;
-  margin-right: 24px;
+}
+
+.userItem {
+  display: flex;
+}
+
+.userButton {
+  width: 141px;
+  border: 2px solid #455FCE;
+  border-radius: 28px;
+  color: #455FCE;
+  padding: 6px 16px;
+  background: white;
+}
+
+.bell {
+  margin-right: 18px;
+  width: 24px;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+@media (max-width: 744px) {
+  .titleHeader, .sectionButton {
+    display: none;
+  }
+  
+  .searchButton {
+    width: 340px;
+  }
+}
+
+@media (max-width: 480px) {
+  .searchButton {
+    width: auto;
+  }
+  
+  .logoName {
+    margin-right: 15px;
+  }
+}
+
+@media (max-width: 360px) {
+  .search {
+    display: none;
+  }
+  
+  .magnifier {
+    display: flex;
+    margin-right: 29px;
+  }
+  
+  .bell {
+    display: none;
+  }
+  
+  .avatarLogin {
+    display: flex;
+    width: 32px;
+    border-radius: 50%;
+  }
+  
+  .buttonLogin {
+    display: none;
+  }
 }
