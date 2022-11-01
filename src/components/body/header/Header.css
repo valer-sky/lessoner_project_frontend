@@ -1,4 +1,4 @@
-.sideBar {
+.side-bar {
   position: relative;
   display: flex;
   align-items: center;
@@ -15,7 +15,7 @@
   padding-left: 5px;
 }
 
-.menuActive {
+.menu-active {
   display: inline-block;
   width: 18px;
   top: 25%;
@@ -23,7 +23,7 @@
   position: relative;
 }
 
-.menuActive::before, .menuActive::after {
+.menu-active::before, .menu-active::after {
   content: '';
   position: absolute;
   width: 18px;
@@ -31,21 +31,21 @@
   left: -2px;
 }
 
-.menuActive::before {
+.menu-active::before {
   top: -9px;
 }
 
-.menuActive::after {
+.menu-active::after {
   bottom: -9px;
 }
 
-.menuList {
+.menu-list {
   padding: 0;
   position: absolute;
   text-align: left;
 }
 
-.menuList li {
+.menu-list li {
   list-style: none;
 }
 
@@ -57,19 +57,19 @@
   height: 100%;
 }
 
-.logoName {
+.logo-name {
   display: flex;
   margin-left: 24px;
   text-decoration: none;
   color: #0F1C2A;
 }
 
-.titleHeader {
+.title-header {
   display: inline-block;
   margin: 0 0 0 5px;
 }
 
-.myStudio {
+.my-studio {
   color: #455FCE;
   margin-left: 15px;
   font-family: 'Apercu Pro';
@@ -81,7 +81,7 @@
   text-decoration: none;
 }
 
-.searchButton {
+.search-button {
   display: flex;
   justify-content: flex-end;
   margin-right: 24px;
@@ -110,26 +110,26 @@
   color: #EAEAEA;
 }
 
-.loginLink {
+.login-link {
   display: inline-block;
 }
 
-.sectionButton {
+.section-button {
   display: flex;
   margin-right: 38px;
   text-decoration: none;
 }
 
-.sectionButton div {
+.section-button div {
   display: flex;
   align-items: center;
 }
 
-.avatarLogin {
+.avatar-login {
   display: none;
 }
 
-.buttonLogin {
+.button-login {
   width: 115px;
   height: 36px;
   background: #455FCE;
@@ -138,11 +138,11 @@
   border-radius: 28px;
 }
 
-.userItem {
+.user-item {
   display: flex;
 }
 
-.userButton {
+.user-button {
   width: 141px;
   border: 2px solid #455FCE;
   border-radius: 28px;
@@ -163,21 +163,21 @@
 }
 
 @media (max-width: 744px) {
-  .titleHeader, .sectionButton {
+  .title-header, .section-button {
     display: none;
   }
   
-  .searchButton {
+  .search-button {
     width: 340px;
   }
 }
 
 @media (max-width: 480px) {
-  .searchButton {
+  .search-button {
     width: auto;
   }
   
-  .logoName {
+  .logo-name {
     margin-right: 15px;
   }
 }
@@ -196,13 +196,13 @@
     display: none;
   }
   
-  .avatarLogin {
+  .avatar-login {
     display: flex;
     width: 32px;
     border-radius: 50%;
   }
   
-  .buttonLogin {
+  .button-login {
     display: none;
   }
 }

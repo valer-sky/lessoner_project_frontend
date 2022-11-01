@@ -10,38 +10,37 @@ import Magnifier from "../../icons/blackMagnifier.svg";
 const Header = () => {
   const isDefaultPage = useAppSelector(state => state.value.isDefaultHeader);
   const page = useAppSelector(state => state.value.page);
+  const userButtonText = page === 'sectionPage' ? 'My studio' : 'Go study'
 
   return (
-    <div className="sideBar">
+    <div className="side-bar">
       <div className='menu'>
-        <span className='menuActive'></span>
+        <span className='menu-active'></span>
       </div>
       <div className='header'>
-        <Link to='/n' className='logoName'>
+        <Link to='/n' className='logo-name'>
           <img className='logo' src={Logo} alt='Logo'/>
-          <h4 className='titleHeader'>The lessoner</h4>
-          {(page === 'myPage' && isDefaultPage) ? <Link to={'/myStudio'} className='myStudio'>My studio</Link> : null}
+          <h4 className='title-header'>The lessoner</h4>
+          {(page === 'myPage' && isDefaultPage) && <Link to={'/myStudio'} className='my-studio'>My studio</Link>}
         </Link>
-        <div className='searchButton'>
+        <div className='search-button'>
           <Link to='/search' className='magnifier'>
             <img src={Magnifier} alt='search'/>
           </Link>
           <input className='search' type='text' placeholder='Search'/>
           {isDefaultPage ?
-            <div className='userItem'>
-              {page ?
-                <Link to='/' className='sectionButton'>
-                  {page === 'sectionPage' ?
-                    <Button buttonType='button' buttonText='My studio' className='userButton'/>
-                    : <Button buttonType='button' buttonText='Go study' className='userButton'/>}
-                </Link> : null}
+            <div className='user-item'>
+              {page &&
+                <Link to='/' className='section-button'>
+                  <Button buttonType='button' buttonText={userButtonText} className='user-button'/>
+                </Link>}
               <img src={Bell} alt='Bell' className='bell'/>
               <img src={Avatar} alt='Avatar' className='avatar'/>
             </div>
             :
-            <Link to="/users/sign_in" className='loginLink'>
-              <img src={Avatar} alt='Avatar' className='avatarLogin'/>
-              <Button buttonType='button' buttonText='Log in' className='buttonLogin'/>
+            <Link to="/users/sign_in" className='login-link'>
+              <img src={Avatar} alt='Avatar' className='avatar-login'/>
+              <Button buttonType='button' buttonText='Log in' className='button-login'/>
             </Link>}
         </div>
       </div>
