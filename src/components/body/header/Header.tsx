@@ -20,7 +20,7 @@ const Header = () => {
         <Link to='/n' className='logoName'>
           <img className='logo' src={Logo} alt='Logo'/>
           <h4 className='titleHeader'>The lessoner</h4>
-          {page === 'myPage' ? <Link to={'/myStudio'} className='myStudio'>My studio</Link> : null}
+          {(page === 'myPage' && isDefaultPage) ? <Link to={'/myStudio'} className='myStudio'>My studio</Link> : null}
         </Link>
         <div className='searchButton'>
           <Link to='/search' className='magnifier'>
