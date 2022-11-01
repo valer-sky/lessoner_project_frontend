@@ -61,7 +61,6 @@ const optionsVideoplayer = {
     // The options to display in the UI, if available for the source media
     options: [1080, 720, 576, 480, 360, 240],
     forced: true,
-    
   },
   markers: {
     enabled: true,
@@ -112,8 +111,7 @@ export default function App() {
 export const VideoPlayer: React.FC = () => {
   return (
     <div className ="player">
-      <Plyr options={optionsVideoplayer}
-        source={videoSrc}
+      <Plyr options={optionsVideoplayer} source={videoSrc}
       />
     </div>
   );
