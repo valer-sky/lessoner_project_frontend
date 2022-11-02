@@ -36,10 +36,8 @@ const PhoneNumber = ({setError, error, phoneNumber, setPhoneNumber}: PhoneNumber
           country='us'
           value={phoneNumber}
           enableLongNumbers={true}
-          // autocompleteSearch={true}
           inputProps={{
             required: true,
-            maxLength: '20'
           }}
         />
         {(error && isBlur) && <span className='error'>{error}</span>}
