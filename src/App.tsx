@@ -5,7 +5,7 @@ import LoginPage from './pages/LoginPage'
 import FirstRegistrationForm from "./components/FirstRegistrationForm";
 import {useAppDispatch} from "./store/hooks";
 import {showDefaultPage, showStudentPage, showSectionPage, showMyPage} from "./store/header/headerSlice";
-
+import Search from "./components/Search";
 
 function App(): any {
   const dispatch = useAppDispatch();
@@ -17,6 +17,7 @@ function App(): any {
         <Routes>
           <Route path='/users/sign_in' element={<LoginPage/>}/>
           <Route path='/users/sign_up' element={<FirstRegistrationForm/>}/>
+        <Route path='/search' element={<Search/>}/>
         </Routes>
 
         <div style={{display: 'flex', flexDirection: 'column'}}>

@@ -1,0 +1,22 @@
+.search-component {
+  position: absolute;
+  width: 100%;
+  top: 0;
+}
+
+.search-arrow {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  flex-wrap: wrap;
+  align-content: space-around;
+}
+
+.search-input {
+  font-size: 2rem;
+  width: 100%;
+  height: 64px;
+  padding-left: 30px;
+}
