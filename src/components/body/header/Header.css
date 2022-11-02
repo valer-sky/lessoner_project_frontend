@@ -74,10 +74,12 @@
 
 .my-studio {
   color: #455FCE;
-  margin-left: 15px;
+  padding-left: 16px;
+  margin-left: 16px;
   font-family: 'Apercu Pro';
   font-style: normal;
   font-weight: 600;
+  border-left: 1px solid #E3E1EC;
   font-size: 16px;
   line-height: 150%;
   letter-spacing: 0.15px;
@@ -121,7 +123,6 @@
 
 .section-button {
   display: flex;
-  margin-right: 38px;
   text-decoration: none;
 }
 
@@ -144,6 +145,7 @@
   border-radius: 28px;
   font-weight: 600;
   font-size: 16px;
+  box-sizing: content-box;
 }
 
 .user-item {
@@ -153,8 +155,11 @@
 
 .user-button {
   width: 141px;
-  border: 2px solid #455FCE;
+  border: 1px solid #455FCE;
   border-radius: 28px;
+  font-family: 'Apercu Pro';
+  font-weight: 600;
+  font-size: 16px;
   color: #455FCE;
   padding: 6px 16px;
   background: white;
@@ -162,6 +167,7 @@
 
 .bell {
   margin-right: 18px;
+  margin-left: 32px;
   width: 24px;
 }
 
