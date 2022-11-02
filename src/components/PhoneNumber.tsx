@@ -14,7 +14,7 @@ const PhoneNumber = ({setError, error, phoneNumber, setPhoneNumber}: PhoneNumber
   const [isBlur, setIsBlur] = useState(false);
 
   const checkNumber = (value: string, country: any, e: React.ChangeEvent<HTMLInputElement>, formattedValue: string) => {
-    if (formattedValue.length !== country.format.length) {
+    if (formattedValue.split(' ').join('').length !== country.format.split(' ').join('').length) {
       setError('Phone number incorrect');
     } else {
       setError('')
@@ -35,8 +35,11 @@ const PhoneNumber = ({setError, error, phoneNumber, setPhoneNumber}: PhoneNumber
           dropdownStyle={{width: 'auto', border: '1px solid #0B456F', borderRadius: '3px'}}
           country='us'
           value={phoneNumber}
+          enableLongNumbers={true}
+          // autocompleteSearch={true}
           inputProps={{
             required: true,
+            maxLength: '20'
           }}
         />
         {(error && isBlur) && <span className='error'>{error}</span>}
