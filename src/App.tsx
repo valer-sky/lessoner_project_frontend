@@ -21,7 +21,7 @@ function App(): JSX.Element {
       <div className="App">
         <Body onLanguageSwitch={setLanguageCode}/>
         <Routes>
-          <Route path='/users/sign_in' element={<LoginPage/>}/>
+          <Route path='/users/sign_in' element={<PhoneNumberPage/>}/>
           <Route path='/users/sign_up' element={<FirstRegistrationForm/>}/>
         <Route path='/search' element={<Search/>}/>
         </Routes>
