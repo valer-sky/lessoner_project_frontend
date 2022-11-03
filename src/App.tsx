@@ -1,19 +1,25 @@
 import "./App.css";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Body from "./components/body/Body";
-import LoginPage from './pages/LoginPage'
+import PhoneNumberPage from "./pages/PhoneNumberPage";
 import FirstRegistrationForm from "./components/FirstRegistrationForm";
+import { useState } from 'react';
+import { IntlProvider } from 'react-intl'; 
+import TranslationHelpers from './components/translations/translationHelpers';
 import {useAppDispatch} from "./store/hooks";
 import {showDefaultPage, showStudentPage, showSectionPage, showMyPage} from "./store/header/headerSlice";
 import Search from "./components/Search";
 
-function App(): any {
+function App(): JSX.Element {
   const dispatch = useAppDispatch();
+  const [languageCode, setLanguageCode] = useState(TranslationHelpers.getCurrentLanguageCode());
+  const messages = TranslationHelpers.getLanguageMessages(languageCode);
 
   return (
+   <IntlProvider locale={languageCode} messages={messages}>
     <BrowserRouter>
       <div className="App">
-        <Body/>
+        <Body onLanguageSwitch={setLanguageCode}/>
         <Routes>
           <Route path='/users/sign_in' element={<LoginPage/>}/>
           <Route path='/users/sign_up' element={<FirstRegistrationForm/>}/>
@@ -26,10 +32,9 @@ function App(): any {
           <button onClick={() => dispatch(showSectionPage())}>Authorized student/creator in study section</button>
           <button onClick={() => dispatch(showMyPage())}>Authorized creator in my studio section</button>
         </div>
-
       </div>
     </BrowserRouter>
+   </IntlProvider>
   );
 }
-
 export default App;
