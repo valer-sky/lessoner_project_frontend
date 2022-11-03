@@ -61,7 +61,7 @@
   display: flex;
   grid-column-start: 1;
   grid-column-end: 4;
-  min-width: 220px;
+  min-width: 230px;
   margin-left: 24px;
   text-decoration: none;
   color: #0F1C2A;
@@ -177,19 +177,23 @@
   border-radius: 50%;
 }
 
-@media (max-width: 1920px) {
+@media (max-width: 1536px) {
   .search-button {
     min-width: 432px;
   }
 }
 
-@media (max-width: 1440px) {
+@media (max-width: 1024px) {
   .title-header, .section-button {
     display: none;
   }
   
   .header {
     grid-template-columns: repeat(6, 1fr);
+  }
+  
+  .logo-name {
+    min-width: 170px;
   }
   
   .search-button {
@@ -199,7 +203,7 @@
   }
 }
 
-@media (max-width: 744px) {
+@media (max-width: 650px) {
   .side-bar {
     display: grid;
     grid-template-columns: 50px 122px 1fr 90px;
