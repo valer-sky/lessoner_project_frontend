@@ -2,9 +2,9 @@ import "./button.scss"
 import {MouseEventHandler} from "react";
 
 type ButtonProps = {
-  buttonType: 'button' | 'submit' | 'reset' | undefined;
+  buttonType: 'button' | 'submit' | 'reset';
   buttonText: string;
-  onClick: MouseEventHandler <HTMLButtonElement> | undefined;
+  onClick?: MouseEventHandler <HTMLButtonElement>;
 }
 
 const Button = ({buttonType, buttonText, onClick}: ButtonProps) => {
