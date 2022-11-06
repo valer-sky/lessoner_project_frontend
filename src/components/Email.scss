@@ -1,13 +1,15 @@
 @import "../constants.scss";
 
 .Email-Wrapper {
-  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 20px 0 0;
 }
 
 .Email-Label {
-  display: block;
   font-weight: bold;
-  margin: 5px 0;
+  margin-bottom: 5px;
   @include fieldsFont;
 }
 
@@ -33,5 +35,5 @@
   color: $warningColor;
   display: block;
   margin-top: 0.5em;
-  @include fieldsFont;
+  font-weight: normal;
 }
