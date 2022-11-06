@@ -25,8 +25,13 @@ $content-color: #1B1B1F;
     transition: .2s;
 }
 
-.blur.active {
+.blur--active {
+    position: absolute;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
     backdrop-filter: blur(2px);
+    transition: .2s;
 }
 
 .menu__content {
@@ -41,8 +46,15 @@ $content-color: #1B1B1F;
     transition: .1s;
 }
 
-.menu__content.active {
+.menu__content--active {
+    position: relative;
     width: 200px;
+    height: 794px;
+    background-color: $white-color;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.5);
     border-radius: 0 15px 15px 0;
     transition: .1s;
 }
@@ -58,7 +70,7 @@ $content-color: #1B1B1F;
 
 .menu__item {
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
     list-style-type: none;
     width: 100%;
@@ -91,14 +103,14 @@ $content-color: #1B1B1F;
     transition: .1s;
 }
 
-.menu__text.active {
+.menu__text--active {
     width: 100px;
     font-size: 1em;
     opacity: 1;
     transition: .1s;
 }
 
-.menu__text.selected {
+.menu__text--selected {
     color: $primary-color;
 }
 

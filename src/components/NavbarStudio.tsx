@@ -17,7 +17,7 @@ const NavbarStudio: FC = () => {
   let menu__text_cs1 = isMenuActive ? 'active' : '';
 
   return (
-    <div className={isMenuActive ? 'menu active' : 'menu'} onClick={() => setIsMenuActive(false)}>
+    <div className='menu' onClick={() => setIsMenuActive(false)}>
         <div className={isMenuActive ? 'blur active' : 'blur'}/>
         <div className={isMenuActive ? 'menu__content active' : 'menu__content'} onClick={e => e.stopPropagation()}>
             <div className="menu__inner">      

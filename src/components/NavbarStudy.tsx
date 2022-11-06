@@ -17,12 +17,12 @@ const NavbarStudy: FC = () => {
 
   let image__wrapper_cs1 = !isMenuActive ? 'active' : '';
   let svg_cs1 = isMenuActive ? 'active' : '';
-  let menu__text_cs1 = isMenuActive ? 'active' : '';
+  let menu__text_cs1 = isMenuActive ? 'menu__text--active' : 'menu__text';
 
   return (
-    <div className={isMenuActive ? 'menu active' : 'menu'} onClick={() => setIsMenuActive(false)}>
-        <div className={isMenuActive ? 'blur active' : 'blur'}/>
-        <div className={isMenuActive ? 'menu__content active' : 'menu__content'} onClick={e => e.stopPropagation()}>
+    <div className= 'menu' onClick={() => setIsMenuActive(false)}>
+        <div className={isMenuActive ? 'blur--active' : 'blur'}/>
+        <div className={isMenuActive ? 'menu__content--active' : 'menu__content'} onClick={e => e.stopPropagation()}>
             <div className="menu__inner">      
                 <ul>
                     {
@@ -57,7 +57,7 @@ const NavbarStudy: FC = () => {
                                             <NavbarSVGSelector icon={item.icon}/>
                                         </div>
                                     </span>
-                                    <span className={`menu__text ${menu__text_cs1} ${item.id === isButtonPressed ? 'selected' : ''}`}>
+                                    <span className={`menu__text ${menu__text_cs1} ${item.id === isButtonPressed ? 'menu__text--selected' : 'menu__text'}`}>
                                         {item.value}
                                     </span>
                                 </a>
