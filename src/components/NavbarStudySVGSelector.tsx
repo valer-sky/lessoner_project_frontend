@@ -4,8 +4,8 @@ import {ReactComponent as Close} from './icons/close.svg';
 import {ReactComponent as Home} from './icons/home.svg';
 import {ReactComponent as Categories} from './icons/categories.svg';
 import {ReactComponent as Subscription} from './icons/subscription.svg';
-import {ReactComponent as Hat_mylesson} from './icons/hat_mylesson.svg';
-import {ReactComponent as Watch_later} from './icons/watch_later.svg';
+import {ReactComponent as HatMylesson} from './icons/hat_mylesson.svg';
+import {ReactComponent as WatchLater} from './icons/watch_later.svg';
 
 type Props = {
     icon: string;
@@ -35,11 +35,11 @@ const NavbarStudySVGSelector = ({ icon }: Props) => {
             );
         case 'hat_mylesson':
             return ( 
-                <Hat_mylesson/>
+                <HatMylesson/>
             );
         case 'watch_later':
             return ( 
-                <Watch_later/>
+                <WatchLater/>
             );
         default:
             return <svg></svg>

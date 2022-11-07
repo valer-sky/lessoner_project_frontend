@@ -1,7 +1,7 @@
 import React from 'react'
 import {ReactComponent as Menu} from './icons/menu.svg';
 import {ReactComponent as Close} from './icons/close.svg';
-import {ReactComponent as My_lesson} from './icons/my_lesson.svg';
+import {ReactComponent as MyLesson} from './icons/my_lesson.svg';
 import {ReactComponent as Management} from './icons/management.svg';
 
 type Props = {
@@ -20,7 +20,7 @@ const NavbarStudioSVGSelector = ({ icon }: Props) => {
             );
         case 'my_lesson':
             return ( 
-                <My_lesson/>
+                <MyLesson/>
             );
         case 'management':
             return ( 

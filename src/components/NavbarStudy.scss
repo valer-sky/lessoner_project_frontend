@@ -92,7 +92,6 @@ $content-color: #1B1B1F;
     fill: $primary-color;
 }
 
-
 .menu__text {
     width: 0;
     text-align: left;
@@ -126,7 +125,7 @@ $content-color: #1B1B1F;
     transition: .2s;
 }
 
-.image__wrapper.active:hover{
+.image__wrapper.active:hover {
     background: $primary-color;
 }
 
@@ -134,7 +133,7 @@ $content-color: #1B1B1F;
     background: $primary-color;
 }
 
-.image__wrapper.active:hover .svg{
+.image__wrapper.active:hover .svg {
     fill: $white-color;
 }
 
