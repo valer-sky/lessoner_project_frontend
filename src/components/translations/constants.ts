@@ -1,5 +1,5 @@
-import {messages_ru} from "./ru.js";
 import {messages_en} from "./en.js";
+import {messages_ru} from "./ru.js";
 
 const LANGUAGES = [
   {
