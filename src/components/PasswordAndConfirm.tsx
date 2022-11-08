@@ -2,6 +2,7 @@ import { useState } from "react";
 import open_eye from "./icons/open_eye.svg";
 import close_eye from "./icons/close_eye.svg";
 import "./passwordAndConfirm.scss";
+import { useIntl } from "react-intl";
 
 type PasswordProps = {
   minSymbol: number;
@@ -17,6 +18,7 @@ type PasswordProps = {
 }
 
 const PasswordAndConfirm = ({ minSymbol, maxSymbol, isConfirm, field, error }: PasswordProps): JSX.Element => {
+  const intl = useIntl();
   const [visiblePassword, setVisiblePassword] = useState(false);
 
   const showPassword = (): void => {
@@ -29,7 +31,7 @@ const PasswordAndConfirm = ({ minSymbol, maxSymbol, isConfirm, field, error }: P
 
   return (
     <div className='password'>
-      <label className='passwordLabel'>{isConfirm ? 'Confirm password' : 'Password'}
+      <label className='passwordLabel'>{isConfirm ? intl.formatMessage({ id: 'app.passwordAndConfirm.confirmPass' }) :  intl.formatMessage({ id: 'app.passwordAndConfirm.pass' })}
         <input type={visiblePassword ? 'text' : 'password'}
           className={`passwordInput ${error ? `errorInput` : ``}`}
           minLength={minSymbol}

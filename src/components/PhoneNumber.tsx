@@ -2,6 +2,7 @@ import {useState} from "react";
 import "./phoneNumber.scss";
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
+import { FormattedMessage } from "react-intl";
 
 type PhoneNumberProps = {
   error: string;
@@ -25,7 +26,8 @@ const PhoneNumber = ({setError, error, phoneNumber, setPhoneNumber}: PhoneNumber
 
   return (
     <div className='phone Number'>
-      <label className='phoneNumberLabel'>Phone number
+      <label className='phoneNumberLabel'>
+        <FormattedMessage id="app.phoneNumber.label" />
         <PhoneInput
           onChange={checkNumber}
           onBlur={() => {
