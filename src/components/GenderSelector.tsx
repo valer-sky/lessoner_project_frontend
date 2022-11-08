@@ -31,7 +31,7 @@ const GenderSelector: React.FC = (props) => {
             <label className={classes.label}> 
                 <div className={classes.radio__wrapper}>
                     <p className={classes.radio__title}>
-                    <FormattedMessage id="app.genderSelector.gender" />
+                        <FormattedMessage id="app.genderSelector.gender" />
                     </p>
                     <div className={classes.radio__items}>
                         <div className={classes.radio__item}>

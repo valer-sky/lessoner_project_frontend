@@ -87,7 +87,7 @@ const FirstRegistrationForm = () => {
               <Field name='confirmPassword' component={PasswordAndConfirm} minSymbol={minSymbol} maxSymbol={maxSymbol} isConfirm={true} error={touched.confirmPassword ? errors.confirmPassword : undefined} />
               <Field name='hasTermsAndConditions' component={Checkbox} error={touched.hasTermsAndConditions ? errors.hasTermsAndConditions : undefined} />
               <button type="submit">
-              <FormattedMessage id="app.firstRegistrationForm.button" />
+                <FormattedMessage id="app.firstRegistrationForm.button" />
               </button>
             </Form>
           )

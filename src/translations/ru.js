@@ -1,8 +1,7 @@
-import { minSymbol } from "../FirstRegistrationForm"
-import { maxSymbol } from "../FirstRegistrationForm"
+import { minSymbol } from "../components/FirstRegistrationForm"
+import { maxSymbol } from "../components/FirstRegistrationForm"
 
-export let messages_ru = {
-"app.name": "Учитель",
+export const messages_ru = {
 "app.studio": "Моя студия",
 "app.categories": "Категории",
 "app.lessons": "Уроки",
@@ -11,9 +10,8 @@ export let messages_ru = {
 "app.registration": "Регистрация",
 "app.header.login": "Авторизоваться",
 "app.header.myStudio": "Моя студия",
-"app.header.goStudy":"Учиться",
+"app.header.goStudy": "Учиться",
 "app.footer": "Подвал",
-"app.lessoner": "Учитель",
 "app.sign_in": "Войти",
 "app.sign_up": "Зарегистрироваться",
 "app.birthdaylabel": "Когда у тебя день рождения?",
@@ -27,7 +25,7 @@ export let messages_ru = {
 "app.firstRegistrationForm.passwordConfrim": "Пароли не совпадают",
 "app.firstRegistrationForm.termsAndConditions": "Вы должны дать согласие на обработку ваших персональных данных в соответствии с Условиями",
 "app.firstRegistrationForm.button": "Дальше",
-"app.genderSelector.gender": "Выберите свой пол",
+"app.genderSelector.gender": "Укажите свой пол",
 "app.passwordAndConfirm.pass": "Пароль",
 "app.passwordAndConfirm.confirmPass": "Подтвердите пароль",
 "app.phoneNumberPage.title": "Введите номер вашего телефона",
@@ -36,5 +34,4 @@ export let messages_ru = {
 "app.loginPage.title": "Зарегистрироваться на Учитель",
 "app.loginPage.checkbox": "Оставаться в системе",
 "app.loginPage.password": "Забыли пароль?",
-"hello": "Привет, мир",
 }

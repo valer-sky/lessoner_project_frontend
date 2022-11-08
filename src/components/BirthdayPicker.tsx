@@ -15,7 +15,7 @@ const BirthdayPicker = () => {
   return (
     <div className='birthday'>
       <label className='birthdaylabel'>
-      <FormattedMessage id="app.studio" />
+        <FormattedMessage id="app.studio" />
         <DatePicker onChange={(e: Date) => fieldHandler(e)}
                     selected={value}
                     placeholderText='--.--.----'

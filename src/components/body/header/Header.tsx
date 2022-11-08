@@ -24,7 +24,7 @@ const Header = () => {
         <Link to='/n' className='logo-name'>
           <img className='logo' src={Logo} alt='Logo'/>
           <h4 className='title-header'>
-          <FormattedMessage id="app.name"/>
+            <FormattedMessage id="app.name" />
           </h4>
           {(page === 'myPage' && isDefaultPage) && <Link to={'/myStudio'} className='my-studio'>
             <FormattedMessage id="app.studio" />
