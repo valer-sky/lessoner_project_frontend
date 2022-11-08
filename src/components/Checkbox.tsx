@@ -1,4 +1,4 @@
-import classes from './Checkbox.module.scss';
+import classes from "./Checkbox.module.scss";
 
 type CheckboxProps = {
   field: {
@@ -27,6 +27,6 @@ const Checkbox = ({ field, error }: CheckboxProps): JSX.Element => {
       </label>
     </div>
   );
-}
+};
 
 export default Checkbox;

@@ -16,7 +16,9 @@ type PasswordProps = {
   error?: string;
 }
 
-const PasswordAndConfirm = ({ minSymbol, maxSymbol, isConfirm, field, error }: PasswordProps): JSX.Element => {
+const PasswordAndConfirm = ({
+  minSymbol, maxSymbol, isConfirm, field, error 
+}: PasswordProps): JSX.Element => {
   const [visiblePassword, setVisiblePassword] = useState(false);
 
   const showPassword = (): void => {
@@ -25,13 +27,13 @@ const PasswordAndConfirm = ({ minSymbol, maxSymbol, isConfirm, field, error }: P
     } else {
       setVisiblePassword(true);
     }
-  }
+  };
 
   return (
     <div className='password'>
-      <label className='passwordLabel'>{isConfirm ? 'Confirm password' : 'Password'}
-        <input type={visiblePassword ? 'text' : 'password'}
-          className={`passwordInput ${error ? `errorInput` : ``}`}
+      <label className='passwordLabel'>{isConfirm ? "Confirm password" : "Password"}
+        <input type={visiblePassword ? "text" : "password"}
+          className={`passwordInput ${error ? "errorInput" : ""}`}
           minLength={minSymbol}
           maxLength={maxSymbol}
           {...field}
@@ -40,7 +42,7 @@ const PasswordAndConfirm = ({ minSymbol, maxSymbol, isConfirm, field, error }: P
         {error && <span className='error'>{error}</span>}
       </label>
     </div>
-  )
-}
+  );
+};
 
 export default PasswordAndConfirm;

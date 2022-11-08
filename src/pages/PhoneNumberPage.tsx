@@ -4,10 +4,10 @@ import PhoneNumber from "../components/PhoneNumber";
 import {useState} from "react";
 import {Link} from "react-router-dom";
 
-const defaultCountry = '375';
+const defaultCountry = "375";
 
 const PhoneNumberPage = () => {
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
   const [phoneNumber, setPhoneNumber] = useState(defaultCountry);
 
   return (
@@ -18,13 +18,13 @@ const PhoneNumberPage = () => {
         </Link>
         <h2 className='title'>Enter your phone number</h2>
         <PhoneNumber setError={setError}
-                     error={error}
-                     phoneNumber={phoneNumber}
-                     setPhoneNumber={setPhoneNumber}/>
+          error={error}
+          phoneNumber={phoneNumber}
+          setPhoneNumber={setPhoneNumber}/>
         <Button buttonType='submit'
-                buttonText='Submit code'/>
+          buttonText='Submit code'/>
       </div>
     </div>
-  )
-}
+  );
+};
 export default PhoneNumberPage;
