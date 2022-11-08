@@ -3,7 +3,7 @@ import {BACKEND_URL} from "../../constants";
 
 export const getLogin = createAsyncThunk(
   "login/getLoginStatus",
-  async (value: any) => {
+  async (value: {email: string, password: string}) => {
     const response = await fetch(`${BACKEND_URL}/login?email=
     ${value.email}&password=${value.password}`, {method:"POST"});
     const data = await response.json();

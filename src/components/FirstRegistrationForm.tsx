@@ -67,7 +67,7 @@ const FirstRegistrationForm = () => {
   };
 
   const submitFirstStepForm = (values: FormValues) => {
-    console.log("all values are correct");
+    console.log("all values are correct", values);
   };
 
   return (
