@@ -1,7 +1,8 @@
+import "./ModalEnterPhone.scss";
 import React,  {
   FC, useEffect, useState
 } from "react";
-import "./ModalEnterPhone.scss";
+
 
 interface CardProps {
   isActive: boolean;
@@ -28,8 +29,6 @@ const ModalEnterPhone: FC<CardProps> =
     const blurHandler = () => {
       setIsPhoneDirty(true);
     };
-
-  
 
     const phoneHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
       const re = /^(\+375|80)(29|25|44|33)(\d{3})(\d{2})(\d{2})$/;

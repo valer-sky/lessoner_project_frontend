@@ -1,6 +1,6 @@
-import React from "react";
 import "./Email.scss";
 import { EMAIL } from "../constants";
+import React from "react";
 
 type EmailProps = {
   field: {

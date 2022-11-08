@@ -1,8 +1,8 @@
 /* eslint-disable max-len */
-import React from "react";
-import Plyr from "plyr-react";
-import "plyr-react/plyr.css";
 import "./index.scss";
+import "plyr-react/plyr.css";
+import Plyr from "plyr-react";
+import React from "react";
 
 const videoSrc  = {
   type: "video" as const,

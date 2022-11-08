@@ -1,7 +1,7 @@
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-import {useState} from "react";
 import "./birthday.scss";
+import "react-datepicker/dist/react-datepicker.css";
+import DatePicker from "react-datepicker";
+import {useState} from "react";
 
 const BirthdayPicker = () => {
   const [value, setValue] = useState<Date | null>(null);

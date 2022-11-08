@@ -1,11 +1,10 @@
 import "../components/modal/modal.scss";
 import Button from "../components/Button";
+import {Link} from "react-router-dom";
 import PhoneNumber from "../components/PhoneNumber";
 import {useState} from "react";
-import {Link} from "react-router-dom";
 
 const defaultCountry = "375";
-
 const PhoneNumberPage = () => {
   const [error, setError] = useState("");
   const [phoneNumber, setPhoneNumber] = useState(defaultCountry);

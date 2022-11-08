@@ -1,7 +1,7 @@
-import {useState} from "react";
 import "./phoneNumber.scss";
-import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
+import PhoneInput from "react-phone-input-2";
+import {useState} from "react";
 
 type PhoneNumberProps = {
   error: string;
@@ -15,7 +15,8 @@ const PhoneNumber = ({
 }: PhoneNumberProps) => {
   const [isBlur, setIsBlur] = useState(false);
 
-  const checkNumber = (value: string, country: any, e: React.ChangeEvent<HTMLInputElement>, formattedValue: string) => {
+  const checkNumber = (value: string, country: any, e: React.ChangeEvent<HTMLInputElement>,
+    formattedValue: string) => {
     if (formattedValue.split(" ").join("").length !== country.format.split(" ").join("").length) {
       setError("Phone number incorrect");
     } else {

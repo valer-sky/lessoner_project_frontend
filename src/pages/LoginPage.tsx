@@ -1,15 +1,15 @@
 import "../components/modal/modal.scss";
-import Email from "../components/Email";
-import Password from "../components/PasswordAndConfirm";
 import {
   Field, Form, Formik 
 } from "formik";
 import Button from "../components/Button";
+import Email from "../components/Email";
 import { Link } from "react-router-dom";
-import { useState } from "react";
-import { useAppDispatch } from "../store/hooks";
-import { getLogin } from "../store/loginName/loginSlice";
 import { PASSWORD } from "../constants";
+import Password from "../components/PasswordAndConfirm";
+import { getLogin } from "../store/loginName/loginSlice";
+import { useAppDispatch } from "../store/hooks";
+import { useState } from "react";
 
 interface FormValues {
   email: string;
@@ -32,7 +32,8 @@ const emailInvalidationRules = [
   /(?<=@).*[^a-z0-9\-.]/, // include only valid symbols before @
 ];
 
-const passwordRegex = new RegExp("^[-/=!#$%&'*+?^_`{|}~.A-Z0-9]{" + PASSWORD.minLength + "," + PASSWORD.maxLength + "}$", "i");
+const passwordRegex = new RegExp("^[-/=!#$%&'*+?^_`{|}~.A-Z0-9]{" + PASSWORD.minLength +
+ "," + PASSWORD.maxLength + "}$", "i");
 
 const validate = async (values: FormValues) => {
   const errors: FormErrors = {};
@@ -40,10 +41,14 @@ const validate = async (values: FormValues) => {
     errors.email = "Please enter a valid email address";
   }
   if (!passwordRegex.test(values.password)) {
-    errors.password = `An invalid character is present in the password. Password must be between ${PASSWORD.minLength} and ${PASSWORD.maxLength} characters; upper or lower case Latin letters (a–z, A–Z); numbers from 0 to 9; symbols ! # $ % & ' * + - / = ? ^ _ \` { | } ~`;
+    errors.password = `An invalid character is present in the password. Password must be between 
+    ${PASSWORD.minLength} and ${PASSWORD.maxLength} characters;
+     upper or lower case Latin letters (a–z, A–Z);
+      numbers from 0 to 9; symbols ! # $ % & ' * + - / = ? ^ _ \` { | } ~`;
   }
   if (values.password.length >= PASSWORD.maxLength || values.password.length < PASSWORD.minLength) {
-    errors.password = `Password must be between ${PASSWORD.minLength} and ${PASSWORD.maxLength} characters`;
+    errors.password = `Password must be between 
+    ${PASSWORD.minLength} and ${PASSWORD.maxLength} characters`;
   }
   return errors;
 };

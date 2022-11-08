@@ -1,9 +1,9 @@
-import {useEffect, useState} from "react";
 import "./userName.scss";
-import {useAppDispatch, useAppSelector} from "../store/hooks";
-import {getUser} from "../store/loginName/userSlice";
 import {AnyAction, Dispatch} from "redux";
+import {useAppDispatch, useAppSelector} from "../store/hooks";
+import {useEffect, useState} from "react";
 import classNames from "classnames";
+import {getUser} from "../store/loginName/userSlice";
 
 type UserNameProps = {
   minSymbol: number;

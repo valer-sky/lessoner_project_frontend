@@ -1,8 +1,8 @@
-import {Link} from "react-router-dom";
-import Arrow from "./icons/Arrow.svg";
-import Cross from "./icons/Cross.svg";
 import "./search.scss";
 import {useEffect, useState} from "react";
+import Arrow from "./icons/Arrow.svg";
+import Cross from "./icons/Cross.svg";
+import {Link} from "react-router-dom";
 
 const Search = () => {
   const [isValue, setIsValue] = useState(false);
@@ -25,7 +25,8 @@ const Search = () => {
       <Link to='/' className='search-arrow'>
         <img src={Arrow} alt='arrow'/>
       </Link>
-      <input type='text' placeholder='Search' value={value} onChange={fieldHandler} className='search-input'/>
+      <input type='text' placeholder='Search' value={value}
+        onChange={fieldHandler} className='search-input'/>
       {isValue && <div className='search-cross' onClick={() => setValue("")}>
         <img src={Cross} alt='cross' className='cross'/>
       </div>}

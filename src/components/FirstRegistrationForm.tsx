@@ -1,10 +1,11 @@
+/* eslint-disable max-len */
+import "./FirstRegistrationForm.scss";
 import {
   Field, Form, Formik 
 } from "formik";
+import Checkbox from "./Checkbox";
 import Email from "./Email";
 import PasswordAndConfirm from "./PasswordAndConfirm";
-import Checkbox from "./Checkbox";
-import "./FirstRegistrationForm.scss";
 import { isEmailExists } from "../services/api/isEmailExists";
 
 interface FormValues {

@@ -1,8 +1,7 @@
+import "./ModalConfirmCode.scss";
 import React,  {
   FC, useEffect, useState
 } from "react";
-import "./ModalConfirmCode.scss";
-
 interface CardProps {
   isActive: boolean;
   setIsActive: (bool: boolean) => void;

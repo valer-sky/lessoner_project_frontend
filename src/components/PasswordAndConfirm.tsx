@@ -1,7 +1,7 @@
-import { useState } from "react";
-import open_eye from "./icons/open_eye.svg";
-import close_eye from "./icons/close_eye.svg";
 import "./passwordAndConfirm.scss";
+import close_eye from "./icons/close_eye.svg";
+import open_eye from "./icons/open_eye.svg";
+import { useState } from "react";
 
 type PasswordProps = {
   minSymbol: number;
@@ -38,7 +38,8 @@ const PasswordAndConfirm = ({
           maxLength={maxSymbol}
           {...field}
           required />
-        <img className='image' alt='eye' src={visiblePassword ? open_eye : close_eye} onClick={showPassword} />
+        <img className='image' alt='eye' 
+          src={visiblePassword ? open_eye : close_eye} onClick={showPassword} />
         {error && <span className='error'>{error}</span>}
       </label>
     </div>

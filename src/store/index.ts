@@ -1,7 +1,7 @@
 import {configureStore} from "@reduxjs/toolkit";
+import headerReducer from "./header/headerSlice";
 import loginReducer from "./loginName/loginSlice";
 import useReducer from "./loginName/userSlice";
-import headerReducer from "./header/headerSlice";
 
 const store = configureStore({reducer: {
   login: loginReducer,

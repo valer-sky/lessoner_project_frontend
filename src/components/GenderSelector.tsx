@@ -1,6 +1,7 @@
+import "../index.css";
 import React, {useState} from "react";
 import classes from "./GenderSelector.module.scss";
-import "../index.scss";
+
 
 const GenderSelector: React.FC = (props) => {
   const [radio, setRadio] = useState<string>("");
