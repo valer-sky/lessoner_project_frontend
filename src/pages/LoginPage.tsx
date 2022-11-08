@@ -69,7 +69,7 @@ const LoginPage = () => {
       <Formik
         initialValues={initialValues}
         validate={validate}
-        onSubmit={(values: object) => {
+        onSubmit={(values: {email: string, password: string}) => {
           dispatch(getLogin(values));
           console.log(values); //for example that working
         }}>
