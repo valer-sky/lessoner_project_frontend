@@ -1,20 +1,25 @@
 import React, {FC, useState} from 'react';
-import './NavbarStudio.scss';
-import NavbarSVGSelector from './NavbarStudioSVGSelector';
+import './NavbarStudyStudio.scss';
+import NavbarStudyStudioSVGSelector from './NavbarStudyStudioSVGSelector';
 
-const NavbarStudio: FC = () => {
+const NavbarStudy: FC = () => {
     const [isMenuActive, setIsMenuActive] = useState(false);
     const [isButtonPressed, setIsButtonPressed] = useState(0);
     const items = [
     {id: 1, value: 'Menu', href: '#!', icon: 'menu'},
     {id: 2, value: 'Close', href: '#!', icon: 'close'},
-    {id: 3, value: 'My lesson', href: '#!', icon: 'my_lesson'},
-    {id: 4, value: 'Management', href: '#!', icon: 'management'},
+    {id: 3, value: 'Home', href: '#!', icon: 'home'},
+    {id: 4, value: 'Categories', href: '#!', icon: 'categories'},
+    {id: 5, value: 'Subscription', href: '#!', icon: 'subscription'},
+    {id: 6, value: 'My lessons', href: '#!', icon: 'hat_mylesson'},
+    {id: 7, value: 'Watch later', href: '#!', icon: 'watch_later'},
+    {id: 8, value: 'My lesson', href: '#!', icon: 'my_lesson'},
+    {id: 9, value: 'Management', href: '#!', icon: 'management'},
   ]
 
   let imageWrapper = !isMenuActive ? 'image__wrapper--active' : '';
-  let svg = isMenuActive ? 'svg--active' : '';
-  let menuText = isMenuActive ? 'menu__text--active' : '';
+let svgItem = isMenuActive ? 'svg__item--active' : '';
+let menuText = isMenuActive ? 'menu__text--active' : '';
 
   return (
     <div className= 'menu' onClick={() => setIsMenuActive(false)}>
@@ -26,20 +31,19 @@ const NavbarStudio: FC = () => {
                     <div className='menu__item' onClick={() => setIsMenuActive(!isMenuActive)}>
                         <div className='image__wrapper image__wrapper--active'>
                             <div className='svg svg__menu'>
-                                <NavbarSVGSelector icon='menu'/>
+                                <NavbarStudyStudioSVGSelector icon='menu'/>
                             </div>
                         </div>
                     </div> :
                     <div className='menu__item' onClick={() => setIsMenuActive(!isMenuActive)}>
                         <div className='image__wrapper image__wrapper--active'>
                             <div className='svg'>
-                                <NavbarSVGSelector icon='close'/>
+                                <NavbarStudyStudioSVGSelector icon='close'/>
                             </div>
                         </div>
                     </div>
                 }
-                {
-                    items.map((item: {
+                {items.map((item: {
                         id: number; href: string; value: string; icon: string; 
                     }) => item.icon !== 'menu' && item.icon !== 'close' ? 
                         <li className={'menu__item'} key={item.id} onClick={() =>
@@ -49,8 +53,8 @@ const NavbarStudio: FC = () => {
                         }>
                             <a className='menu__item-inner'  href={item.href}>
                                 <span className={`image__wrapper ${imageWrapper} ${item.id === isButtonPressed ? 'image__wrapper--selected' : ''}`}>
-                                    <div className={`svg ${svg} ${item.id === isButtonPressed ? 'svg--selected' : ''}`}>
-                                        <NavbarSVGSelector icon={item.icon}/>
+                                    <div className={`svg__item ${svgItem} ${item.id === isButtonPressed ? 'svg__item--selected' : ''}`}>
+                                        <NavbarStudyStudioSVGSelector icon={item.icon}/>
                                     </div>
                                 </span>
                                 <span className={`menu__text ${menuText} ${item.id === isButtonPressed ? 'menu__text--selected' : ''}`}>
@@ -60,7 +64,7 @@ const NavbarStudio: FC = () => {
                         </li>
                         :
                         null
-                    )
+                    ) 
                 }
             </ul>
         </div>
@@ -68,4 +72,4 @@ const NavbarStudio: FC = () => {
   )
 }
 
-export default NavbarStudio;
+export default NavbarStudy;

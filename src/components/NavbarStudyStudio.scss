@@ -82,7 +82,7 @@ $content-color: #1B1B1F;
     color: $primary-color;
 }
 
-.menu__item-inner:hover .svg {
+.menu__item-inner:hover .svg__item {
     fill: $primary-color;
 }
 
@@ -127,7 +127,7 @@ $content-color: #1B1B1F;
     background: $primary-color;
 }
 
-.image__wrapper--active:hover .svg {
+.image__wrapper--active:hover .svg__item {
     fill: $white-color;
 }
 
@@ -135,7 +135,7 @@ $content-color: #1B1B1F;
     stroke: $white-color;
 }
 
-.svg {
+.svg__item {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -144,7 +144,7 @@ $content-color: #1B1B1F;
     fill: $content-color;
 }
 
-.svg svg {
+.svg__item svg {
     width: 20px;
     height: 20px;
 }
@@ -153,11 +153,11 @@ $content-color: #1B1B1F;
     stroke: $content-color;
 }
 
-.svg--active.svg--selected {
+.svg__item--active.svg__item--selected {
     fill: $primary-color;
-    
+
 }
 
-.svg--selected {
+.svg__item--selected {
     fill: $white-color;
 }

@@ -6,12 +6,14 @@ import {ReactComponent as Categories} from './icons/categories.svg';
 import {ReactComponent as Subscription} from './icons/subscription.svg';
 import {ReactComponent as HatMylesson} from './icons/hat_mylesson.svg';
 import {ReactComponent as WatchLater} from './icons/watch_later.svg';
+import {ReactComponent as MyLesson} from './icons/my_lesson.svg';
+import {ReactComponent as Management} from './icons/management.svg';
 
 type Props = {
     icon: string;
 }
 
-const NavbarStudySVGSelector = ({ icon }: Props) => {
+const NavbarStudyStudioSVGSelector = ({ icon }: Props) => {
     switch (icon) {
         case 'menu':
             return (
@@ -41,9 +43,17 @@ const NavbarStudySVGSelector = ({ icon }: Props) => {
             return ( 
                 <WatchLater/>
             );
+            case 'my_lesson':
+            return ( 
+                <MyLesson/>
+            );
+        case 'management':
+            return ( 
+                <Management/>
+            );
         default:
             return <svg></svg>
     }
 }
 
-export default NavbarStudySVGSelector;
+export default NavbarStudyStudioSVGSelector;
