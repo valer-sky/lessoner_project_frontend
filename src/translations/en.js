@@ -1,6 +1,3 @@
-import { minSymbol } from "../components/FirstRegistrationForm"
-import { maxSymbol } from "../components/FirstRegistrationForm"
-
 export const messages_en = {
 "app.name": "Lessoner",
 "app.studio": "My Studio",
@@ -22,9 +19,9 @@ export const messages_en = {
 "app.email.name": "Email",
 "app.firstRegistrationForm.existsInDb": "This email address is already registered",
 "app.firstRegistrationForm.invalidationRules": "Please enter a valid email address",
-"app.firstRegistrationForm.passwordRegEx": `An invalid character is present in the password. Password must be between ${minSymbol} and ${maxSymbol} characters; upper or lower case Latin letters (a–z, A–Z); numbers from 0 to 9; symbols ! # $ % & ' * + - / = ? ^ _  { | } ~`,
-"app.firstRegistrationForm.passwordLength": `Password must be between ${minSymbol} and ${maxSymbol} characters`,
-"app.firstRegistrationForm.passwordConfrim": "Passwords do not match",
+"app.firstRegistrationForm.passwordRegEx": `An invalid character is present in the password. Password must be between {minSymbol} and {maxSymbol} characters; upper or lower case Latin letters (a–z, A–Z); numbers from 0 to 9; symbols {symbols}`,
+"app.firstRegistrationForm.passwordLength": `Password must be between {minSymbol} and {maxSymbol} characters`,
+"app.firstRegistrationForm.passwordConfrim": "Passwords do not match ",
 "app.firstRegistrationForm.termsAndConditions": "You must consent to the processing of your personal data, in accordance with the Terms",
 "app.firstRegistrationForm.button": "Next",
 "app.genderSelector.gender": "Select Your Gender",
