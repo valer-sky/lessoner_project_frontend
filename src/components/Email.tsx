@@ -3,7 +3,6 @@ import './Email.scss';
 import { EMAIL } from "../constants";
 import { FormattedMessage } from "react-intl";
 
-
 type EmailProps = {
   field: {
     name: string,
