@@ -4,7 +4,7 @@
 
 - node: v16.13.0
 
-- npm: 8.19.2
+- yarn: 1.22.17
 
 - docker: 20.10.17
 
@@ -12,6 +12,6 @@
 
 - `docker build --tag lessoner-app-image .`
 
-- `docker run -p 8080:80 --name lessoner-app lessoner-app-image`
+- `docker run -d -p 8080:80 --name lessoner-app lessoner-app-image`
 
 - open http://localhost:8080
