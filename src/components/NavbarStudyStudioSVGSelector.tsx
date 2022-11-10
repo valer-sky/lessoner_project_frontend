@@ -43,7 +43,7 @@ const NavbarStudyStudioSVGSelector = ({ icon }: Props) => {
             return ( 
                 <WatchLater/>
             );
-            case 'my_lesson':
+        case 'my_lesson':
             return ( 
                 <MyLesson/>
             );
