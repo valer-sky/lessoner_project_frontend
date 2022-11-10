@@ -28,9 +28,9 @@ export const messages_en = {
 "app.passwordAndConfirm.pass": "Password",
 "app.passwordAndConfirm.confirmPass": "Confirm password",
 "app.phoneNumberPage.title": "Enter your phone number",
-"app.phoneNumberPage.submit":" Submit code",
+"app.phoneNumberPage.submit": "Submit code",
 "app.phoneNumber.label": "Phone number",
 "app.loginPage.title": "Login to the Lessoner",
 "app.loginPage.checkbox": "Stay logged in",
-"app.loginPage.password": " Forgot your password?",
+"app.loginPage.password": "Forgot your password?",
 }
