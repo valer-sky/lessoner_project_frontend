@@ -35,7 +35,7 @@ const allowPasswordSymbols= "! # $ % & ' * + - / = ? ^ _  { | } ~";
 const passwordRegex = new RegExp("^[-/=!#$%&'*+?^_`{|}~.A-Z0-9]{" + minSymbol + "," + maxSymbol + "}$", "i");
 
 const FirstRegistrationForm = () => {
-  const intl=useIntl();
+  const intl = useIntl();
   const initialValues: FormValues = {
     email: '',
     password: '',
@@ -51,13 +51,13 @@ const FirstRegistrationForm = () => {
       errors.email = intl.formatMessage({ id: 'app.firstRegistrationForm.existsInDb' });
     }
     if (emailInvalidationRules.some(rule => rule.test(values.email))) {
-      errors.email = errors.email = intl.formatMessage({ id: 'app.firstRegistrationForm.invalidationRules' });
+      errors.email = intl.formatMessage({ id: 'app.firstRegistrationForm.invalidationRules' });
     }
     if (!passwordRegex.test(values.password)) {
       errors.password = intl.formatMessage({ id: 'app.firstRegistrationForm.passwordRegEx' }, { minSymbol, maxSymbol, symbols: allowPasswordSymbols });
     }
     if (values.password.length >= maxSymbol || values.password.length < minSymbol) {
-      errors.password=intl.formatMessage({ id: 'app.firstRegistrationForm.passwordLength' }, { minSymbol, maxSymbol });
+      errors.password = intl.formatMessage({ id: 'app.firstRegistrationForm.passwordLength' }, { minSymbol, maxSymbol });
     }
     if (values.password !== values.confirmPassword) {
       errors.confirmPassword = intl.formatMessage({ id: 'app.firstRegistrationForm.passwordConfrim' });

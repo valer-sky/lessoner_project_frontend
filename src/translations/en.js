@@ -33,4 +33,6 @@ export const messages_en = {
 "app.loginPage.title": "Login to the Lessoner",
 "app.loginPage.checkbox": "Stay logged in",
 "app.loginPage.password": "Forgot your password?",
+"app.header.placeholder": "Search",
+"app.phoneNumber.err": "Phone number incorrect",
 }

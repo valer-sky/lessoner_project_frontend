@@ -32,4 +32,6 @@ export const messages_ru = {
     "app.loginPage.title": "Зарегистрироваться на Учитель",
     "app.loginPage.checkbox": "Оставаться в системе",
     "app.loginPage.password": "Забыли пароль?",
+    "app.header.placeholder": "Поиск",
+    "app.phoneNumber.err": "Некорректный номер телефона",
 }

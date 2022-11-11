@@ -34,7 +34,7 @@ const Header = () => {
           <Link to='/search' className='magnifier'>
             <img src={Magnifier} alt='search'/>
           </Link>
-          <input className='search' type='text' placeholder='Search'/>
+          <input className='search' type='text' placeholder= {intl.formatMessage({ id: 'app.header.placeholder' })}/>
           {isDefaultPage ?
             <div className='user-item'>
               {page &&
