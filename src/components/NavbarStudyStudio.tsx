@@ -2,8 +2,11 @@ import React, {FC, useState} from 'react';
 import classNames from 'classnames';
 import './NavbarStudyStudio.scss';
 import NavbarStudyStudioSVGSelector from './NavbarStudyStudioSVGSelector';
+import { useIntl } from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 
 const NavbarStudyStudio: FC = () => {
+    const intl = useIntl();
     const EMPTY_BUTTON_ID = 0;
     const [isMenuActive, setIsMenuActive] = useState(false);
     const menuType = 'study';
@@ -11,13 +14,13 @@ const NavbarStudyStudio: FC = () => {
     const items = [
     {id: 1, value: 'Menu', href: '#!', icon: 'menu', place: 'openclose'},
     {id: 2, value: 'Close', href: '#!', icon: 'close', place: 'openclose'},
-    {id: 3, value: 'Home', href: '#!', icon: 'home', place: 'study'},
-    {id: 4, value: 'Categories', href: '#!', icon: 'categories', place: 'study'},
-    {id: 5, value: 'Subscription', href: '#!', icon: 'subscription', place: 'study'},
-    {id: 6, value: 'My lessons', href: '#!', icon: 'hat_mylesson', place: 'study'},
-    {id: 7, value: 'Watch later', href: '#!', icon: 'watch_later', place: 'study'},
-    {id: 8, value: 'My lesson', href: '#!', icon: 'my_lesson', place: 'studio'},
-    {id: 9, value: 'Management', href: '#!', icon: 'management', place: 'studio'},
+    {id: 3, value: `${intl.formatMessage({ id: 'app.navbarStudyStudio.home'})}`, href: '#!', icon: 'home', place: 'study'},
+    {id: 4, value: `${intl.formatMessage({ id: 'app.navbarStudyStudio.categories'})}`, href: '#!', icon: 'categories', place: 'study'},
+    {id: 5, value: `${intl.formatMessage({ id: 'app.navbarStudyStudio.subscription'})}`, href: '#!', icon: 'subscription', place: 'study'},
+    {id: 6, value: `${intl.formatMessage({ id: 'app.navbarStudyStudio.myLessons'})}`, href: '#!', icon: 'hat_mylesson', place: 'study'},
+    {id: 7, value: `${intl.formatMessage({ id: 'app.navbarStudyStudio.watchLater'})}`, href: '#!', icon: 'watch_later', place: 'study'},
+    {id: 8, value: `${intl.formatMessage({ id: 'app.navbarStudyStudio.myLesson'})}`, href: '#!', icon: 'my_lesson', place: 'studio'},
+    {id: 9, value: `${intl.formatMessage({ id: 'app.navbarStudyStudio.management'})}`, href: '#!', icon: 'management', place: 'studio'},
   ]
 
 let imageWrapperCN = classNames('image__wrapper', {'image__wrapper--active': !isMenuActive});
