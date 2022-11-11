@@ -6,7 +6,7 @@ import NavbarStudyStudioSVGSelector from './NavbarStudyStudioSVGSelector';
 const NavbarStudyStudio: FC = () => {
     const EMPTY_BUTTON_ID = 0;
     const [isMenuActive, setIsMenuActive] = useState(false);
-    const [menuType, setMenuType] = useState('study');
+    const menuType = 'study';
     const [buttonPressed, setButtonPressed] = useState(EMPTY_BUTTON_ID);
     const items = [
     {id: 1, value: 'Menu', href: '#!', icon: 'menu', place: 'openclose'},
