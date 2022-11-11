@@ -3,7 +3,6 @@ import classNames from 'classnames';
 import './NavbarStudyStudio.scss';
 import NavbarStudyStudioSVGSelector from './NavbarStudyStudioSVGSelector';
 import { useIntl } from 'react-intl';
-import { FormattedMessage } from 'react-intl';
 
 const NavbarStudyStudio: FC = () => {
     const intl = useIntl();
