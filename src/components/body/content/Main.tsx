@@ -5,10 +5,12 @@ import Lessons from "./lessons/Lessons";
 import About from "./about/About";
 import SignIn from "./SignIn/SignIn";
 import SignUp from "./lessoner/SignUp/SignUp";
+import NavbarStudyStudio from "../../NavbarStudyStudio";
 
 const Content = () => {
  return (
     <div className="main">
+      <NavbarStudyStudio/>
       <Routes>
         <Route path="/" element={<Lessoner />} />
         <Route path="/categories" element={<Categories />} />

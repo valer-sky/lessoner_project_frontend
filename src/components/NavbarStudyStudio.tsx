@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import './NavbarStudyStudio.scss';
 import NavbarStudyStudioSVGSelector from './NavbarStudyStudioSVGSelector';
 
-const NavbarStudy: FC = () => {
+const NavbarStudyStudio: FC = () => {
     const EMPTY_BUTTON_ID = 0;
     const [isMenuActive, setIsMenuActive] = useState(false);
     const [menuType, setMenuType] = useState('study');
@@ -20,16 +20,15 @@ const NavbarStudy: FC = () => {
     {id: 9, value: 'Management', href: '#!', icon: 'management', place: 'studio'},
   ]
 
-let imageWrapperCN = classNames('image__wrapper', !isMenuActive ? 'image__wrapper--active' : '');
-let svgItemCN = classNames('svg__item', isMenuActive ? 'svg__item--active' : '');
-let menuTextCN = classNames('menu__text', isMenuActive ? 'menu__text--active' : '');
-let blurCN = classNames(isMenuActive ? 'blur--active' : 'blur');
-let menuContentCN = classNames(isMenuActive ? 'menu__content--active' : 'menu__content');
+let imageWrapperCN = classNames('image__wrapper', {'image__wrapper--active': !isMenuActive});
+let svgItemCN = classNames('svg__item', {'svg__item--active' : isMenuActive});
+let menuTextCN = classNames('menu__text', {'menu__text--active': isMenuActive});
+let menuContentCN = classNames('menu__content', {'menu__content--active': isMenuActive});
 
   return (
-    <div className= 'menu' onClick={() => setIsMenuActive(false)}>
-        <div className={blurCN}/>
-        <div className={menuContentCN} onClick={e => e.stopPropagation()}>
+    <div onClick={() => setIsMenuActive(false)}>
+        <div className={menuContentCN} 
+             onClick={e => e.stopPropagation()}>
             <ul className="menu__inner">
                 {
                     !isMenuActive ? 
@@ -58,8 +57,8 @@ let menuContentCN = classNames(isMenuActive ? 'menu__content--active' : 'menu__c
                             setButtonPressed(item.id)}
                         >
                             <a className='menu__item-inner'  href={item.href}>
-                                <span className={`${imageWrapperCN} ${item.id === buttonPressed ? 'image__wrapper--selected' : ''}`}>
-                                    <div className={`${svgItemCN} ${item.id === buttonPressed ? 'svg__item--selected' : ''}`}>
+                                <span className={classNames(imageWrapperCN, {'image__wrapper--selected': item.id === buttonPressed})}>
+                                    <div className={classNames(svgItemCN, {'svg__item--selected': item.id === buttonPressed})}>
                                         <NavbarStudyStudioSVGSelector icon={item.icon}/>
                                     </div>
                                 </span>
@@ -76,4 +75,4 @@ let menuContentCN = classNames(isMenuActive ? 'menu__content--active' : 'menu__c
   )
 }
 
-export default NavbarStudy;
+export default NavbarStudyStudio;
