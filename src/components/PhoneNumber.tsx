@@ -2,6 +2,8 @@ import {useState} from "react";
 import "./phoneNumber.scss";
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
+import { FormattedMessage } from "react-intl";
+import { useIntl } from "react-intl";
 
 type PhoneNumberProps = {
   error: string;
@@ -10,12 +12,13 @@ type PhoneNumberProps = {
   setPhoneNumber: (str: string) => void;
 }
 
-const PhoneNumber = ({setError, error, phoneNumber, setPhoneNumber}: PhoneNumberProps) => {
+const PhoneNumber=({ setError, error, phoneNumber, setPhoneNumber }: PhoneNumberProps) => {
+  const intl = useIntl();
   const [isBlur, setIsBlur] = useState(false);
 
   const checkNumber = (value: string, country: any, e: React.ChangeEvent<HTMLInputElement>, formattedValue: string) => {
     if (formattedValue.split(' ').join('').length !== country.format.split(' ').join('').length) {
-      setError('Phone number incorrect');
+      setError(intl.formatMessage({ id: "app.phoneNumber.err"}));
     } else {
       console.log('format',country.format);
       setError('')
@@ -25,7 +28,8 @@ const PhoneNumber = ({setError, error, phoneNumber, setPhoneNumber}: PhoneNumber
 
   return (
     <div className='phone Number'>
-      <label className='phoneNumberLabel'>Phone number
+      <label className='phoneNumberLabel'>
+        <FormattedMessage id="app.phoneNumber.label" />
         <PhoneInput
           onChange={checkNumber}
           onBlur={() => {
