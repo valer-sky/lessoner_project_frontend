@@ -29,10 +29,9 @@ const PhoneNumber=({
       if (formattedValue.split(" ").join("").length !== country.format.split(" ").join("").length) {
         setError(intl.formatMessage({ id: "app.phoneNumber.err"}));
       } else {
-        console.log("format",country.format);
         setError("");
       }
-      setPhoneNumber(value);console.log(country);
+      setPhoneNumber(value);
     };
   
   return (
