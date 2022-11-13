@@ -11,14 +11,6 @@ const GenderSelector: React.FC = (props) => {
     FEMALE: "female",
     OTHER: "other",
   };
-    
-  const errorHandler = () => {
-    if (radio === "") {
-      setRadioError("Please select Your gender");
-    } else {
-      setRadioError(""); 
-    }
-  };
 
   const getOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setRadio(e.target.name);

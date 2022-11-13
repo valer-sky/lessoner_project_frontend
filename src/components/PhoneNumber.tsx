@@ -10,7 +10,13 @@ type PhoneNumberProps = {
   phoneNumber: string,
   setPhoneNumber: (str: string) => void;
 }
+type countryType = {
+  countryCode: string,
+  dialCode: string,
+  format: string,
+  name:string
 
+}
 const PhoneNumber=({
   setError, error, phoneNumber, setPhoneNumber 
 }: PhoneNumberProps) => {
@@ -18,16 +24,17 @@ const PhoneNumber=({
   const [isBlur, setIsBlur] = useState(false);
 
   const checkNumber =
-  (value: string, country: any, e: React.ChangeEvent<HTMLInputElement>, formattedValue: string) => {
-    if (formattedValue.split(" ").join("").length !== country.format.split(" ").join("").length) {
-      setError(intl.formatMessage({ id: "app.phoneNumber.err"}));
-    } else {
-      console.log("format",country.format);
-      setError("");
-    }
-    setPhoneNumber(value);
-  };
-
+    (value: string, country: countryType, e: React.ChangeEvent<HTMLInputElement>,
+      formattedValue: string) => {
+      if (formattedValue.split(" ").join("").length !== country.format.split(" ").join("").length) {
+        setError(intl.formatMessage({ id: "app.phoneNumber.err"}));
+      } else {
+        console.log("format",country.format);
+        setError("");
+      }
+      setPhoneNumber(value);console.log(country);
+    };
+  
   return (
     <div className='phone Number'>
       <label className='phoneNumberLabel'>
