@@ -1,5 +1,6 @@
 import "./Email.scss";
 import { EMAIL } from "../constants";
+import { FormattedMessage } from "react-intl";
 import React from "react";
 
 type EmailProps = {
@@ -15,7 +16,8 @@ type EmailProps = {
 const Email = ({ field, error }: EmailProps): JSX.Element => {
   return (
     <div className="Email-Wrapper">
-      <label className="Email-Label">Email
+      <label className="Email-Label">
+        <FormattedMessage id="app.email.name" />
         <input type="text"
           minLength={EMAIL.minLength}
           maxLength={EMAIL.maxLength}

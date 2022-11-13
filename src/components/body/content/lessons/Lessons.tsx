@@ -1,9 +1,10 @@
 import { VideoPlayer } from "../videoplayer/Videoplayer";
+import { FormattedMessage } from "react-intl";
 
 const Lessons = () => {
   return (
     <div className="lessons">
-      Lessons
+        <FormattedMessage id="app.lessons" />
       <div className="wrapper">
         <VideoPlayer />
       </div>

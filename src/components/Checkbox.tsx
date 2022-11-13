@@ -1,3 +1,4 @@
+import { FormattedMessage } from "react-intl";
 import classes from "./Checkbox.module.scss";
 
 type CheckboxProps = {
@@ -20,8 +21,8 @@ const Checkbox = ({ field, error }: CheckboxProps): JSX.Element => {
             {...field}
           />
           <p>
-            I agree to the processing of my personal data in accordance with the 
-            <a href='#!'>Terms</a>
+            <FormattedMessage id="app.checkbox" /> <a href='#!'>
+              <FormattedMessage id="app.checkbox.terms" /> </a>
           </p>
         </div>
         {error && <div><span className='error-Message'>{error}</span></div>}

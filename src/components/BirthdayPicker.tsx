@@ -1,6 +1,7 @@
 import "./birthday.scss";
 import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from "react-datepicker";
+import { FormattedMessage } from "react-intl";
 import {useState} from "react";
 
 const BirthdayPicker = () => {
@@ -13,7 +14,8 @@ const BirthdayPicker = () => {
 
   return (
     <div className='birthday'>
-      <label className='birthdaylabel'>When is your birthday?
+      <label className='birthdaylabel'>
+        <FormattedMessage id="app.studio" />
         <DatePicker onChange={(e: Date) => fieldHandler(e)}
           selected={value}
           placeholderText='--.--.----'

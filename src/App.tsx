@@ -3,15 +3,15 @@ import {
   BrowserRouter, Route, Routes
 } from "react-router-dom";
 import {
-  showDefaultPage, showMyPage, showSectionPage, showStudentPage
+  showDefaultPage,  showMyPage, showSectionPage,  showStudentPage
 } from "./store/header/headerSlice";
 import Body from "./components/body/Body";
 import FirstRegistrationForm from "./components/FirstRegistrationForm";
 import { IntlProvider } from "react-intl"; 
 import PhoneNumberPage from "./pages/PhoneNumberPage";
 import Search from "./components/Search";
-import TranslationHelpers from "./components/translations/translationHelpers";
-import {useAppDispatch} from "./store/hooks";
+import TranslationHelpers from "./translations/translationHelpers";
+import { useAppDispatch } from "./store/hooks";
 import { useState } from "react";
 
 function App(): JSX.Element {

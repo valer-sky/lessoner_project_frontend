@@ -1,7 +1,7 @@
 import "../index.css";
 import React, {useState} from "react";
+import { FormattedMessage } from "react-intl";
 import classes from "./GenderSelector.module.scss";
-
 
 const GenderSelector: React.FC = (props) => {
   const [radio, setRadio] = useState<string>("");
@@ -12,7 +12,6 @@ const GenderSelector: React.FC = (props) => {
     OTHER: "other",
   };
     
-
   const errorHandler = () => {
     if (radio === "") {
       setRadioError("Please select Your gender");
@@ -31,7 +30,7 @@ const GenderSelector: React.FC = (props) => {
       <label className={classes.label}> 
         <div className={classes.radio__wrapper}>
           <p className={classes.radio__title}>
-                        Select Your Gender
+            <FormattedMessage id="app.genderSelector.gender" />
           </p>
           <div className={classes.radio__items}>
             <div className={classes.radio__item}>
