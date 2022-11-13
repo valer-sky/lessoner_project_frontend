@@ -1,11 +1,13 @@
-import { Formik, Form, Field } from 'formik';
+/* eslint-disable max-len */
+import "./FirstRegistrationForm.scss";
+import {
+  Field, Form, Formik 
+} from "formik";
+import { FormattedMessage , useIntl } from "react-intl";
+import Checkbox from "./Checkbox";
 import Email from "./Email";
-import PasswordAndConfirm from './PasswordAndConfirm';
-import Checkbox from './Checkbox';
-import './FirstRegistrationForm.scss';
-import { isEmailExists } from '../services/api/isEmailExists';
-import { useIntl } from "react-intl";
-import { FormattedMessage } from "react-intl";
+import PasswordAndConfirm from "./PasswordAndConfirm";
+import { isEmailExists } from "../services/api/isEmailExists";
 
 interface FormValues {
   email: string;
@@ -33,43 +35,45 @@ const minSymbol = 6;
 const maxSymbol = 256;
 const allowPasswordSymbols= "! # $ % & ' * + - / = ? ^ _  { | } ~";
 const passwordRegex = new RegExp("^[-/=!#$%&'*+?^_`{|}~.A-Z0-9]{" + minSymbol + "," + maxSymbol + "}$", "i");
-
 const FirstRegistrationForm = () => {
   const intl = useIntl();
   const initialValues: FormValues = {
-    email: '',
-    password: '',
-    confirmPassword: '',
+    email: "",
+    password: "",
+    confirmPassword: "",
     hasTermsAndConditions: false
-  }
+  };
 
   const validate = async (values: FormValues) => {
     const isEmailExistsInDB = await isEmailExists(values.email);
 
-    let errors: FormErrors = {};
+    const errors: FormErrors = {};
     if (isEmailExistsInDB) {
-      errors.email = intl.formatMessage({ id: 'app.firstRegistrationForm.existsInDb' });
+
+      errors.email = intl.formatMessage({ id: "app.firstRegistrationForm.existsInDb" });
     }
     if (emailInvalidationRules.some(rule => rule.test(values.email))) {
-      errors.email = intl.formatMessage({ id: 'app.firstRegistrationForm.invalidationRules' });
+      errors.email = intl.formatMessage({ id: "app.firstRegistrationForm.invalidationRules" });
     }
     if (!passwordRegex.test(values.password)) {
-      errors.password = intl.formatMessage({ id: 'app.firstRegistrationForm.passwordRegEx' }, { minSymbol, maxSymbol, symbols: allowPasswordSymbols });
+      errors.password = intl.formatMessage({ id: "app.firstRegistrationForm.passwordRegEx" }, {
+        minSymbol, maxSymbol, symbols: allowPasswordSymbols 
+      });
     }
     if (values.password.length >= maxSymbol || values.password.length < minSymbol) {
-      errors.password = intl.formatMessage({ id: 'app.firstRegistrationForm.passwordLength' }, { minSymbol, maxSymbol });
+      errors.password = intl.formatMessage({ id: "app.firstRegistrationForm.passwordLength" }, { minSymbol, maxSymbol });
     }
     if (values.password !== values.confirmPassword) {
-      errors.confirmPassword = intl.formatMessage({ id: 'app.firstRegistrationForm.passwordConfrim' });
+      errors.confirmPassword = intl.formatMessage({ id: "app.firstRegistrationForm.passwordConfrim" });
     }
     if (!(values.hasTermsAndConditions)) {
-      errors.hasTermsAndConditions = intl.formatMessage({ id: 'app.firstRegistrationForm.termsAndConditions' });
+      errors.hasTermsAndConditions = intl.formatMessage({ id: "app.firstRegistrationForm.termsAndConditions" });
     }
     return errors;
-  }
+  };
 
   const submitFirstStepForm = (values: FormValues) => {
-    console.log('all values are correct');
+    console.log("all values are correct", values);
   };
 
   return (
@@ -91,11 +95,11 @@ const FirstRegistrationForm = () => {
                 <FormattedMessage id="app.firstRegistrationForm.button" />
               </button>
             </Form>
-          )
+          );
         }}
       </Formik>
     </div>
-  )
+  );
 };
 
 export default FirstRegistrationForm;

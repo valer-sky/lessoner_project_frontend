@@ -1,7 +1,7 @@
-import React from "react";
-import './Email.scss';
+import "./Email.scss";
 import { EMAIL } from "../constants";
 import { FormattedMessage } from "react-intl";
+import React from "react";
 
 type EmailProps = {
   field: {
@@ -29,7 +29,7 @@ const Email = ({ field, error }: EmailProps): JSX.Element => {
         {error && <span className='error-Message'>{error}</span>}
       </label>
     </div>
-  )
+  );
 };
 
 export default Email;
