@@ -3,14 +3,14 @@ import About from "./about/About";
 import Categories from "./categories/Categories";
 import Lessoner from "./lessoner/Lessoner";
 import Lessons from "./lessons/Lessons";
+import NavbarStudyStudio from "../../NavbarStudyStudio";
 import SignIn from "./SignIn/SignIn";
 import SignUp from "./lessoner/SignUp/SignUp";
-import NavbarStudyStudio from "../../NavbarStudyStudio";
 
 const Content = () => {
   return (
     <div className="main">
-      <NavbarStudyStudio menuType={'study'}/>
+      <NavbarStudyStudio menuType={"study"}/>
       <Routes>
         <Route path="/" element={<Lessoner />} />
         <Route path="/categories" element={<Categories />} />
