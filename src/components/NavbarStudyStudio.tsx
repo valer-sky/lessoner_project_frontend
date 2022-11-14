@@ -9,11 +9,9 @@ interface NavbarStudyStudioProps {
 }
 
 const NavbarStudyStudio: FC<NavbarStudyStudioProps> = ({menuType}) => {
-    console.log(menuType)
     const intl = useIntl();
     const EMPTY_BUTTON_ID = 0;
     const [isMenuActive, setIsMenuActive] = useState(false);
-    //const menuType = 'study';
     const [buttonPressed, setButtonPressed] = useState(EMPTY_BUTTON_ID);
     const items = [
     {id: 1, value: 'Menu', href: '#!', icon: 'menu', place: 'openclose'},
@@ -27,10 +25,10 @@ const NavbarStudyStudio: FC<NavbarStudyStudioProps> = ({menuType}) => {
     {id: 9, value: `${intl.formatMessage({ id: 'app.navbarStudyStudio.management'})}`, href: '#!', icon: 'management', place: 'studio'},
   ]
 
-let imageWrapperCN = classNames('image__wrapper', {'image__wrapper--active': !isMenuActive});
-let svgItemCN = classNames('svg__item', {'svg__item--active' : isMenuActive});
-let menuTextCN = classNames('menu__text', {'menu__text--active': isMenuActive});
-let menuContentCN = classNames('menu__content', {'menu__content--active': isMenuActive});
+const imageWrapperCN = classNames('image__wrapper', {'image__wrapper--active': !isMenuActive});
+const svgItemCN = classNames('svg__item', {'svg__item--active' : isMenuActive});
+const menuTextCN = classNames('menu__text', {'menu__text--active': isMenuActive});
+const menuContentCN = classNames('menu__content', {'menu__content--active': isMenuActive});
 
   return (
     <div onClick={() => setIsMenuActive(false)}>
