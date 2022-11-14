@@ -4,11 +4,16 @@ import './NavbarStudyStudio.scss';
 import NavbarStudyStudioSVGSelector from './NavbarStudyStudioSVGSelector';
 import { useIntl } from 'react-intl';
 
-const NavbarStudyStudio: FC = () => {
+interface NavbarStudyStudioProps {
+  menuType: string;
+}
+
+const NavbarStudyStudio: FC<NavbarStudyStudioProps> = ({menuType}) => {
+    console.log(menuType)
     const intl = useIntl();
     const EMPTY_BUTTON_ID = 0;
     const [isMenuActive, setIsMenuActive] = useState(false);
-    const menuType = 'study';
+    //const menuType = 'study';
     const [buttonPressed, setButtonPressed] = useState(EMPTY_BUTTON_ID);
     const items = [
     {id: 1, value: 'Menu', href: '#!', icon: 'menu', place: 'openclose'},

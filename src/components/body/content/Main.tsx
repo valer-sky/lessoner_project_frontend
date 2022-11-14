@@ -10,7 +10,7 @@ import NavbarStudyStudio from "../../NavbarStudyStudio";
 const Content = () => {
  return (
     <div className="main">
-      <NavbarStudyStudio/>
+      <NavbarStudyStudio menuType={'study'}/>
       <Routes>
         <Route path="/" element={<Lessoner />} />
         <Route path="/categories" element={<Categories />} />
