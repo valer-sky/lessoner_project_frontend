@@ -1,0 +1,52 @@
+@font-face {
+    font-family: "Apercu Pro";
+    src: url("../../../fonts/font/ApercuPro.woff"),
+    url("../../../fonts/font/ApercuPro-Bold.woff"),;
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+.tag {
+    align-items: center;
+    border-radius: 4px;
+    min-width: 69px;
+    height: 24px;
+    padding: 4px 8px 4px 8px;
+}
+
+.tag-status {
+    background-color: #455FCE;
+    color: #FFFFFF;
+    font-family: 'Apercu Pro';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    min-width: 64px;
+    height: 24px;
+}
+
+.tag-time {
+    background-color: #5A5D72;
+    color: #FFFFFF;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 150%;
+    min-width: 46px;
+    height: 26px;  
+}
+
+.tag-category {
+    background: linear-gradient(0deg, rgba(93, 150, 217, 0.08), rgba(93, 150, 217, 0.08)), #FEFBFF;
+    color: #455FCE;
+    font-family: 'Apercu Pro';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 15px;
+    min-width: 26px;
+    height: 23px;
+}
